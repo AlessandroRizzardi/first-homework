@@ -2,7 +2,7 @@
 #define CRAINE_H
 
 
-struct Craine{
+struct Crane{
 
     double base_width;
     double base_height;
