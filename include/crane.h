@@ -1,6 +1,9 @@
 #ifndef CRAINE_H
 #define CRAINE_H
 
+#include <string>
+#include <iostream>
+
 
 struct Crane{
 
@@ -22,6 +25,8 @@ struct Crane{
 Crane* ale_init(double starting_base_width, double starting_base_height, double starting_base, double starting_height, double starting_sliding, double starting_arm, double starting_angle);
 
 bool ale_check_constraints(double base_width, double base_height, double base, double height, double sliding, double arm, double angle);
+
+string ale_to_svg(Crane* device);
 
 
 

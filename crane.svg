@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<svg xmlns="http://www.w3.org/2000/svg"  width = "1000" height = "900">
+<svg  width = "1000" height = "900">
 
 <g>
 <rect x = "400" y = "800" width = "200" height = "60"  stroke = "black" stroke-width = "3" fill = "blue" />
@@ -23,7 +22,7 @@
 <text x = "420" y = "780" fill = "black"> sliding </text>
 </g>
 
-<g transform  = "rotate(-45,515,325)">
+<g transform  = "rotate(-0,515,325)">
 <rect x = "415" y = "300" width = "400" height = "50" stroke = "black" stroke-width = "3" fill = "green" />
 <text x = "550" y = "270" fill = "black"> arm </text>
 <line x1 = "415" y1 = "280" x2 = "815" y2 = "280"  stroke = "black" stroke-width  = "2"/>
