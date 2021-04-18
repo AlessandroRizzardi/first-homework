@@ -202,9 +202,9 @@ int ale_set_angle(Crane* device, double new_angle){
 
 }
 
-void ale_save_to_file(string text){
+void ale_save_to_file(string text, const char* file_name){
 
-    ofstream ale_File("cranedrawing.svg");
+    ofstream ale_File(file_name);
  
     string string_to_write = text;
     

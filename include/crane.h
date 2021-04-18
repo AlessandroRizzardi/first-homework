@@ -44,7 +44,7 @@ int ale_set_arm(Crane* device, double new_arm);
 
 int ale_set_angle(Crane* device, double new_angle);
 
-void ale_save_to_file(string text);
+void ale_save_to_file(string text,const char* file_name);
 
 
 
