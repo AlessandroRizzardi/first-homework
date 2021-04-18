@@ -28,6 +28,20 @@ bool ale_check_constraints(double base_width, double base_height, double base, d
 
 string ale_to_svg(Crane* device);
 
+int ale_set_base_width(Crane* device, double new_base_width);
+
+int ale_set_base_height(Crane* device, double new_base_height);
+
+int ale_set_base(Crane* device, double new_base);
+
+int ale_set_height(Crane* device, double new_height);
+
+int ale_set_sliding(Crane* device, double new_sliding);
+
+int ale_set_arm(Crane* device, double new_arm);
+
+int ale_set_angle(Crane* device, double new_angle);
+
 
 
 

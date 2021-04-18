@@ -105,3 +105,90 @@ string ale_to_svg(Crane* device){
     text += "</svg>"; 
 
 }
+
+int ale_set_base_width(Crane* device, double new_base_width){ 
+
+    if(ale_check_constraints(new_base_width, device->base_height, device->base, device->height, device->sliding,device->arm, device->angle) == false){
+        return 1;
+    }
+
+    device->base_width = new_base_width;
+
+    return 0;
+
+}
+
+
+int ale_set_base_height(Crane* device, double new_base_height){ 
+
+    if(ale_check_constraints(device->base_width, new_base_height, device->base, device->height, device->sliding,device->arm, device->angle) == false){
+        return 1;
+    }
+
+    device->base_height = new_base_height;
+
+    return 0;
+
+}
+
+
+int ale_set_base(Crane* device, double new_base){ 
+
+    if(ale_check_constraints(device->base_width, device->base_height, new_base, device->height, device->sliding,device->arm, device->angle) == false){
+        return 1;
+    }
+
+    device->base = new_base;
+
+    return 0;
+
+}
+
+
+int ale_set_height(Crane* device, double new_height){ 
+
+    if(ale_check_constraints(device->base_width, device->base_height, device->base, new_height, device->sliding,device->arm, device->angle) == false){
+        return 1;
+    }
+
+    device->height = new_height;
+
+    return 0;
+
+}
+
+int ale_set_sliding(Crane* device, double new_sliding){ 
+
+    if(ale_check_constraints(device->base_width, device->base_height, device->base, device->height, new_sliding,device->arm, device->angle) == false){
+        return 1;
+    }
+
+    device->sliding = new_sliding;
+
+    return 0;
+
+}
+
+int ale_set_arm(Crane* device, double new_arm){ 
+
+    if(ale_check_constraints(device->base_width, device->base_height, device->base, device->height, device->sliding, new_arm, device->angle) == false){
+        return 1;
+    }
+
+    device->arm = new_arm;
+
+    return 0;
+
+}
+
+int ale_set_angle(Crane* device, double new_angle){ 
+
+    if(ale_check_constraints(device->base_width, device->base_height, device->base, device->height, device->sliding,device->arm, new_angle) == false){
+        return 1;
+    }
+
+    device->angle = new_angle;
+
+    return 0;
+
+}
