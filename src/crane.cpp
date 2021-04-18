@@ -215,3 +215,15 @@ void ale_save_to_file(string text, const char* file_name){
     ale_File.close();
 
 }
+
+void ale_load_from_file(string text, const char* file_name ){
+
+    ifstream t(file_name);
+    stringstream buffer;
+    buffer << t.rdbuf();
+    string text = buffer.str();
+    
+    cout << "I read this" << endl;
+    cout << text << endl;
+
+}
