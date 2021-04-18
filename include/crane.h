@@ -1,9 +1,11 @@
 #ifndef CRAINE_H
 #define CRAINE_H
 
-#include <string>
-#include <iostream>
 
+#include <string>
+
+
+using namespace std;
 
 struct Crane{
 
@@ -41,6 +43,9 @@ int ale_set_sliding(Crane* device, double new_sliding);
 int ale_set_arm(Crane* device, double new_arm);
 
 int ale_set_angle(Crane* device, double new_angle);
+
+void ale_save_to_file(string text);
+
 
 
 

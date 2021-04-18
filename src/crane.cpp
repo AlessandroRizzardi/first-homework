@@ -1,5 +1,14 @@
 #include "crane.h"
 
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <streambuf>
+#include <sstream>
+
+
+using namespace std;
+
 
 
 
@@ -190,5 +199,19 @@ int ale_set_angle(Crane* device, double new_angle){
     device->angle = new_angle;
 
     return 0;
+
+}
+
+void ale_save_to_file(string text){
+
+    ofstream ale_File("cranedrawing.svg");
+ 
+    string string_to_write = text;
+    
+    
+    ale_File << string_to_write;
+    
+    
+    ale_File.close();
 
 }
