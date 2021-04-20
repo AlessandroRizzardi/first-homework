@@ -59,7 +59,7 @@ TEST_CASE("ale_init should return a NULL pinter if constraints are not respected
 
 TEST_CASE("ale_init should succeed and return a pointer to a structure , which contains the legths given , if constraints are respected","[crane]"){
 
-    Crane* device = ale_init(200,-60,50,500,90,400,45);
+    Crane* device = ale_init(200,60,50,500,90,400,45);
 
     REQUIRE(device != NULL);
     REQUIRE(device->base_width == 200);
@@ -74,7 +74,182 @@ TEST_CASE("ale_init should succeed and return a pointer to a structure , which c
 
 }
 
-// testing ale_set functions
+// testing ale_set_base_width function
+
+TEST_CASE("If the new length does no respect constraints the function ale_set_base_width should return 1","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_base_width(device,-190) == 1);
+    
+}
+
+TEST_CASE("If the new length respects constraints the function ale_set_base_width should return 0","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_base_width(device,195) == 0);
+    
+}
+
+TEST_CASE("Function ale_set_base_width should replace the old length with the new one","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    ale_set_base_width(device,195);
+
+    REQUIRE(device->base_width == 195);
+    
+}
+
+// testing ale_set_base_height function
+
+TEST_CASE("If the new length does no respect constraints the function ale_set_base_height should return 1","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_base_height(device,-60) == 1);
+    
+}
+
+TEST_CASE("If the new length respects constraints the function ale_set_base_height should return 0","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_base_height(device,65) == 0);
+    
+}
+
+TEST_CASE("Function ale_set_base_height should replace the old length with the new one","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    ale_set_base_height(device,65);
+
+    REQUIRE(device->base_height == 65);
+    
+}
+
+// testing ale_set_base function
+
+
+TEST_CASE("If the new length does not respect constraints the function ale_set_base should return 1","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_base(device,-50) == 1);
+    
+}
+
+TEST_CASE("If the new length respects constraints the function ale_set_base should return 0","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_base(device, 55) == 0);
+    
+}
+
+TEST_CASE("Function ale_set_base should replace the old length with the new one","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    ale_set_base(device, 55);
+
+    REQUIRE(device->base == 55);
+    
+}
+
+// testing ale_set_height function
+
+TEST_CASE("If the new length does not respect constraints the function ale_set_height should return 1","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_height(device,-500) == 1);
+    
+}
+
+TEST_CASE("If the new length respects constraints the function ale_set_height should return 0","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_height(device, 510) == 0);
+    
+}
+
+TEST_CASE("Function ale_set_height should replace the old length with the new one","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    ale_set_height(device, 510);
+
+    REQUIRE(device->height == 510);
+    
+}
+
+// testing ale_set_sliding function
+
+TEST_CASE("If the new length does not respect constraints the function ale_set_sliding should return 1","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_sliding(device,-90) == 1);
+    
+}
+
+TEST_CASE("If the new length respects constraints the function ale_set_sliding should return 0","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_sliding(device, 95) == 0);
+    
+}
+
+TEST_CASE("Function ale_set_slidingshould replace the old length with the new one","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    ale_set_sliding(device, 95);
+
+    REQUIRE(device->sliding == 95);
+    
+}
+
+// testing ale_set_arm function
+
+TEST_CASE("If the new length does not respect constraints the function ale_set_arm should return 1","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_arm(device,-400) == 1);
+    
+}
+
+TEST_CASE("If the new length respects constraints the function ale_set_arm should return 0","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_arm(device, 410) == 0);
+    
+}
+
+TEST_CASE("Function ale_set_slidingshould replace the old length with the new one","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    ale_set_arm(device, 95);
+
+    REQUIRE(device->arm == 95);
+    
+}
+
+// testing ale_set_arm function
+
+
+
+
+
+
 
 
 
