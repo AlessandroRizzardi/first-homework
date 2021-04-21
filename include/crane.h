@@ -46,6 +46,8 @@ int ale_set_angle(Crane* device, double new_angle);
 
 void ale_save_to_file(string text);
 
+Crane* ale_parse(string svg);
+
 
 
 

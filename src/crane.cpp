@@ -215,3 +215,7 @@ void ale_save_to_file(string text){
     ale_File.close();
 
 }
+
+Crane* ale_parse(string svg){
+    
+}
