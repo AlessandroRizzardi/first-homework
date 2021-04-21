@@ -72,9 +72,9 @@ string ale_to_svg(Crane* device){
     text += "<svg  width = \"1000\" height = \"900\">";
     text += "<g>";
     text += "<rect x = \"400\" y = \"800\" width =\"";
-    text += string(device->base_width);
+    text += to_string(device->base_width);
     text += "\" height = \"";
-    text += string(device->base_height);
+    text += to_string(device->base_height);
     text += "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />";
     text += "<rect x = \"";
     int ax = 400 + device->sliding;
@@ -227,6 +227,7 @@ void ale_load_from_file(string text, const char* file_name ){
     cout << "I read this" << endl;
     cout << text << endl;
 
+}
 
 Crane* ale_parse(string svg){
 
@@ -316,7 +317,7 @@ Crane* ale_parse(string svg){
         return NULL;
     }
 
-    Crane* device = init(read_base_width, read_base_height, read_base, read_height, read_sliding, read_arm, read_angle);
+    Crane* device = ale_init(read_base_width, read_base_height, read_base, read_height, read_sliding, read_arm, read_angle);
 
     return device;
    
