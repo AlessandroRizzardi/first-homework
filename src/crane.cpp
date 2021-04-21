@@ -216,7 +216,7 @@ void ale_save_to_file(string text, const char* file_name){
 
 }
 
-<<<<<<< HEAD
+
 void ale_load_from_file(string text, const char* file_name ){
 
     ifstream t(file_name);
@@ -227,7 +227,7 @@ void ale_load_from_file(string text, const char* file_name ){
     cout << "I read this" << endl;
     cout << text << endl;
 
-=======
+
 Crane* ale_parse(string svg){
 
     double read_base_width;
@@ -251,7 +251,7 @@ Crane* ale_parse(string svg){
 
     //getting base_height length
 
-    string search = "height = \"";
+    search = "height = \"";
     size_t found3 = svg.find(search, found1) + search.size();
     size_t found4 = svg.find("\"", found1);
 
@@ -262,7 +262,7 @@ Crane* ale_parse(string svg){
 
     //getting sliding length
 
-    string search = "rect x = \"";
+    search = "rect x = \"";
     size_t found5 = svg.find(search, found3) + search.size();
     size_t found6 = svg.find("\"", found5);
 
@@ -273,7 +273,7 @@ Crane* ale_parse(string svg){
 
     //getting base length
 
-    string search = "\" width = \"";
+    search = "\" width = \"";
     size_t found7 = svg.find(search, found3) + search.size();
     size_t found8 = svg.find("\"", found7);
 
@@ -284,7 +284,7 @@ Crane* ale_parse(string svg){
 
     //getting height length
 
-    string search = "\" height = \"";
+    search = "\" height = \"";
     size_t found9 = svg.find(search, found7) + search.size();
     size_t found10 = svg.find("\"", found9);
 
@@ -294,7 +294,7 @@ Crane* ale_parse(string svg){
 
     //getting arm length
 
-    string search = "\" width = \"";
+    search = "\" width = \"";
     size_t found11 = svg.find(search, found9) + search.size();
     size_t found12 = svg.find("\"", found11);
 
@@ -304,7 +304,7 @@ Crane* ale_parse(string svg){
 
     //getting angle length
 
-    string search = "\" width = \"";
+    search = "\" width = \"";
     size_t found13 = svg.find(search, found11) + search.size();
     size_t found14 = svg.find("\"", found13);
 
@@ -320,5 +320,5 @@ Crane* ale_parse(string svg){
 
     return device;
    
->>>>>>> fix3
+
 }
