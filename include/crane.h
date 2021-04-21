@@ -46,6 +46,12 @@ int ale_set_angle(Crane* device, double new_angle);
 
 void ale_save_to_file(string text);
 
+/**
+ * ale_parse get a string with svg code and parse it to get the length data and create a new Crane structure
+ * 
+ * @param svg string which contains the svg code
+ * @return NULL if the lengths dont respect cobnstraints, otherwise a pointer to a a Crane structure 
+*/
 Crane* ale_parse(string svg);
 
 

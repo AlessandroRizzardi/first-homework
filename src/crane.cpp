@@ -217,5 +217,95 @@ void ale_save_to_file(string text){
 }
 
 Crane* ale_parse(string svg){
-    
+
+    double read_base_width;
+    double read_base_height;
+    double read_base;
+    double read_height;
+    double read_sliding;
+    double read_arm;
+    double read_angle;
+
+
+    //getting base_width length
+
+    string search = "rect x = \"400\" y = \"800\" width = \"";
+    size_t found1 = svg.find(search) + search.size();
+    size_t found2 = svg.find("\"", found1);
+
+    string read_svg = svg.substr(found1, found2);
+
+    read_base_width = stod(read_svg);
+
+    //getting base_height length
+
+    string search = "height = \"";
+    size_t found3 = svg.find(search, found1) + search.size();
+    size_t found4 = svg.find("\"", found1);
+
+    string read_svg = svg.substr(found3, found4);
+
+    read_base_height = stod(read_svg);
+
+
+    //getting sliding length
+
+    string search = "rect x = \"";
+    size_t found5 = svg.find(search, found3) + search.size();
+    size_t found6 = svg.find("\"", found5);
+
+    string read_svg = svg.substr(found5, found6);
+
+    read_sliding = stod(read_svg);
+
+
+    //getting base length
+
+    string search = "\" width = \"";
+    size_t found7 = svg.find(search, found3) + search.size();
+    size_t found8 = svg.find("\"", found7);
+
+    string read_svg = svg.substr(found5, found6);
+
+    read_base = stod(read_svg);
+
+
+    //getting height length
+
+    string search = "\" height = \"";
+    size_t found9 = svg.find(search, found7) + search.size();
+    size_t found10 = svg.find("\"", found9);
+
+    string read_svg = svg.substr(found9, found10);
+
+    read_height = stod(read_svg);
+
+    //getting arm length
+
+    string search = "\" width = \"";
+    size_t found11 = svg.find(search, found9) + search.size();
+    size_t found12 = svg.find("\"", found11);
+
+    string read_svg = svg.substr(found11, found12);
+
+    read_arm = stod(read_svg);
+
+    //getting angle length
+
+    string search = "\" width = \"";
+    size_t found13 = svg.find(search, found11) + search.size();
+    size_t found14 = svg.find("\"", found13);
+
+    string read_svg = svg.substr(found13, found14);
+
+    read_angle = stod(read_svg);
+
+    if(ale_check_constraints(read_base_width, read_base_height, read_base, read_height, read_sliding, read_arm, read_angle) == false){
+        return NULL;
+    }
+
+    Crane* device = init(read_base_width, read_base_height, read_base, read_height, read_sliding, read_arm, read_angle);
+
+    return device;
+   
 }
