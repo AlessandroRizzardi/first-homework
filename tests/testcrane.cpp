@@ -233,7 +233,7 @@ TEST_CASE("If the new length respects constraints the function ale_set_arm shoul
     
 }
 
-TEST_CASE("Function ale_set_slidingshould replace the old length with the new one","[craine]"){
+TEST_CASE("Function ale_set_arm should replace the old length with the new one","[craine]"){
 
     Crane* device = ale_init(200,60,50,500,90,400,45);
 
@@ -243,7 +243,27 @@ TEST_CASE("Function ale_set_slidingshould replace the old length with the new on
     
 }
 
-// testing ale_set_arm function
+// testing ale_set_angle function
+
+TEST_CASE("If the new length respects constraints the function ale_set_angle should return 0","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    REQUIRE(ale_set_angle(device, 50) == 0);
+    
+}
+
+TEST_CASE("Function ale_set_angle should replace the old length with the new one","[craine]"){
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    ale_set_angle(device, 50);
+
+    REQUIRE(device->arm == 50);
+    
+}
+
+// testing ale_to_svg 
 
 
 
