@@ -113,6 +113,8 @@ string ale_to_svg(Crane* device){
     text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>";
     text += "</svg>"; 
 
+    return text;
+
 }
 
 int ale_set_base_width(Crane* device, double new_base_width){ 
