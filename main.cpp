@@ -56,20 +56,22 @@ int main() {
 
     cout << "Svg file has been created" << endl;
 
-    cout << "You can change legths:" << endl;
-    cout << "Press 1 to change base_width;" << endl;
-    cout << "Press 2 to change base_height;" << endl;
-    cout << "Press 3 to change base;" << endl;
-    cout << "Press 4 to change height;" << endl;
-    cout << "Press 5 to change sliding;" << endl;
-    cout << "Press 6 to change arm;" << endl;
-    cout << "Press 7 to change angle;" << endl;
-    cout << "Press 0 if you are satisfied of the drawing"<< endl;
+    int choice ;
 
-    int choice;
+    do{
+        
 
-    while(choice != 0){
+        cout << "You can change legths:" << endl;
+        cout << "Press 1 to change base_width;" << endl;
+        cout << "Press 2 to change base_height;" << endl;
+        cout << "Press 3 to change base;" << endl;
+        cout << "Press 4 to change height;" << endl;
+        cout << "Press 5 to change sliding;" << endl;
+        cout << "Press 6 to change arm;" << endl;
+        cout << "Press 7 to change angle;" << endl;
+        cout << "Press 0 if you are satisfied of the drawing"<< endl;
 
+            
         cin >> choice;
 
         if(choice == 1){
@@ -183,9 +185,10 @@ int main() {
             ale_save_to_file(svg_code, "newcrane.svg");
 
         }
-    }
+        
+    } while(choice != 0);
 
-    */
+    
 
 
 
