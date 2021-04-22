@@ -222,7 +222,7 @@ void ale_load_from_file(string text, const char* file_name ){
     ifstream t(file_name);
     stringstream buffer;
     buffer << t.rdbuf();
-    string text = buffer.str();
+    text = buffer.str();
     
     cout << "I read this" << endl;
     cout << text << endl;
@@ -256,7 +256,7 @@ Crane* ale_parse(string svg){
     size_t found3 = svg.find(search, found1) + search.size();
     size_t found4 = svg.find("\"", found1);
 
-    string read_svg = svg.substr(found3, found4);
+    read_svg = svg.substr(found3, found4);
 
     read_base_height = stod(read_svg);
 
@@ -267,7 +267,7 @@ Crane* ale_parse(string svg){
     size_t found5 = svg.find(search, found3) + search.size();
     size_t found6 = svg.find("\"", found5);
 
-    string read_svg = svg.substr(found5, found6);
+    read_svg = svg.substr(found5, found6);
 
     read_sliding = stod(read_svg);
 
@@ -278,7 +278,7 @@ Crane* ale_parse(string svg){
     size_t found7 = svg.find(search, found3) + search.size();
     size_t found8 = svg.find("\"", found7);
 
-    string read_svg = svg.substr(found5, found6);
+    read_svg = svg.substr(found5, found6);
 
     read_base = stod(read_svg);
 
@@ -299,7 +299,7 @@ Crane* ale_parse(string svg){
     size_t found11 = svg.find(search, found9) + search.size();
     size_t found12 = svg.find("\"", found11);
 
-    string read_svg = svg.substr(found11, found12);
+    read_svg = svg.substr(found11, found12);
 
     read_arm = stod(read_svg);
 
@@ -309,7 +309,7 @@ Crane* ale_parse(string svg){
     size_t found13 = svg.find(search, found11) + search.size();
     size_t found14 = svg.find("\"", found13);
 
-    string read_svg = svg.substr(found13, found14);
+    read_svg = svg.substr(found13, found14);
 
     read_angle = stod(read_svg);
 
