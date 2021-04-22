@@ -289,7 +289,7 @@ Crane* ale_parse(string svg){
     size_t found9 = svg.find(search, found7) + search.size();
     size_t found10 = svg.find("\"", found9);
 
-    string read_svg = svg.substr(found9, found10);
+    read_svg = svg.substr(found9, found10);
 
     read_height = stod(read_svg);
 
