@@ -69,13 +69,16 @@ string ale_to_svg(Crane* device){
 
     string text = "";
 
-    text += "<svg  width = \"1000\" height = \"900\">";
-    text += "<g>";
+    text += "<svg  width = \"1000\" height = \"900\">\n";
+
+    text += "<g>\n";
+
     text += "<rect x = \"400\" y = \"800\" width =\"";
     text += to_string(device->base_width);
     text += "\" height = \"";
     text += to_string(device->base_height);
-    text += "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />";
+    text += "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />\n";
+
     text += "<rect x = \"";
     int ax = 400 + device->sliding;
     text += to_string(ax);
@@ -86,7 +89,8 @@ string ale_to_svg(Crane* device){
     text += to_string(device->base);
     text += "\" height = \"";
     text += to_string(device->height);
-    text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"red\" />";
+    text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"red\" />\n";
+
     text += "<rect x = \"";
     int bx = ax + (device->base)*(1/2) - (1/4) * (device->arm);
     text += to_string(bx);
@@ -110,7 +114,7 @@ string ale_to_svg(Crane* device){
     text += to_string(ay + (1/2)*device->base);
     text += "\" r = \"";
     text += to_string((1/2)*device->base);
-    text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>";
+    text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>\n";
     text += "</svg>"; 
 
     return text;
