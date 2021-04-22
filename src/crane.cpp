@@ -83,7 +83,7 @@ string ale_to_svg(Crane* device){
     double ax = 400 + device->sliding;
     text += to_string(ax);
     text += "\" y = \"";
-    double ay = 800 + device->height;
+    double ay = 800 - device->height;
     text += to_string(ay);
     text += "\" width = \"";
     text += to_string(device->base);
