@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-    /*
+    
     double base_width;
     double base_height;
     double base;
@@ -47,15 +47,12 @@ int main() {
     cout << "Angle: ";
     cin >> angle;
     cout << endl;
-    */
-
+    
     Crane* device = ale_init(200, 60, 50, 500, 90, 400, 45);
 
     string svg_code = ale_to_svg(device);
 
     ale_save_to_file(svg_code,"newcrane.svg");
-
-    /*
 
     cout << "Svg file has been created" << endl;
 
