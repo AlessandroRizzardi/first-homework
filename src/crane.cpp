@@ -21,7 +21,7 @@ Crane* ale_init(double starting_base_width, double starting_base_height, double 
     }
 
     crane->base_width = starting_base_width;
-    crane->base_height = starting_height;
+    crane->base_height = starting_base_height;
     crane->base = starting_base;
     crane->sliding = starting_sliding;
     crane->height = starting_height;
@@ -80,10 +80,10 @@ string ale_to_svg(Crane* device){
     text += "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />\n";
 
     text += "<rect x = \"";
-    int ax = 400 + device->sliding;
+    double ax = 400 + device->sliding;
     text += to_string(ax);
     text += "\" y = \"";
-    int ay = 400 + device->sliding;
+    double ay = 800 + device->height;
     text += to_string(ay);
     text += "\" width = \"";
     text += to_string(device->base);
@@ -92,10 +92,10 @@ string ale_to_svg(Crane* device){
     text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"red\" />\n";
 
     text += "<rect x = \"";
-    int bx = ax + (device->base)*(1/2) - (1/4) * (device->arm);
+    double bx = ax + (device->base)*(1/2) - (1/4) * (device->arm);
     text += to_string(bx);
     text += "\" y = \"";
-    int by = ay;
+    double by = ay;
     text += to_string(by);
     text += "\" width = \""; 
     text += to_string(device->arm);
