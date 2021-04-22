@@ -263,7 +263,47 @@ TEST_CASE("Function ale_set_angle should replace the old length with the new one
     
 }
 
-// testing ale_to_svg 
+// testing ale_to_svg
+
+
+//testing ale_parse
+
+TEST_CASE("ale_parse should return a NULL pointer if the crane drawing in the svg file does not respect the constarints" ,"[crane]"){
+
+    string s = "";
+
+    ale_load_from_file(s, "crane2.svg");
+
+    REQUIRE(ale_parse(s) == NULL);
+}
+
+TEST_CASE("ale_parse should return a non NULL pointer if the crane drawing in the svg file respects constarints", "[crane]"){
+    
+    string s = "";
+
+    ale_load_from_file(s,"crane.svg");
+
+    REQUIRE(ale_parse(s) == NULL);
+
+}
+
+TEST_CASE("ale_parse should return a Crane structure with the read length","[crane]"){
+
+    string s = "";
+
+    ale_load_from_file(s,"crane.svg");
+
+    Crane* device = ale_parse(s);
+
+     REQUIRE(device->base_width == 200);
+    REQUIRE(device->base_height == 60);
+    REQUIRE(device->base == 50);
+    REQUIRE(device->height == 500);
+    REQUIRE(device->sliding == 90);
+    REQUIRE(device->arm == 400);
+    REQUIRE(device->angle == 45);
+
+}
 
 
 
