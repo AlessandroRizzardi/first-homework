@@ -71,8 +71,6 @@ string ale_to_svg(Crane* device){
 
     text += "<svg  width = \"1000\" height = \"900\">\n";
 
-    text += "<g>\n";
-
     text += "<rect x = \"400\" y = \"800\" width =\"";
     text += to_string(device->base_width);
     text += "\" height = \"";
@@ -92,7 +90,7 @@ string ale_to_svg(Crane* device){
     text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"red\" />\n";
 
     text += "<rect x = \"";
-    double bx = ax + (device->base)*(1/2) - (1/4) * (device->arm);
+    double bx = ax + (device->base)*0.5 - 0.25 * (device->arm);
     text += to_string(bx);
     text += "\" y = \"";
     double by = ay;
@@ -104,16 +102,17 @@ string ale_to_svg(Crane* device){
     text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"green\" transform  = \"rotate(";
     text += to_string(device->angle);
     text += ",";
-    text += to_string(ax + (1/2)*device->base);
+    text += to_string(ax + 0.5*device->base);
     text += ",";
-    text += to_string(ay + (1/2)*device->base);
-    text += ")\"/>";
+    text += to_string(ay + 0.5*device->base);
+    text += ")\"/>\n";
+    
     text += "<circle cx = \"";
-    text += to_string(ax + (1/2)*device->base);
+    text += to_string(ax + 0.5*device->base);
     text += "\" cy = \"";
-    text += to_string(ay + (1/2)*device->base);
+    text += to_string(ay + 0.5*device->base);
     text += "\" r = \"";
-    text += to_string((1/2)*device->base);
+    text += to_string(0.5*device->base);
     text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>\n";
     text += "</svg>"; 
 
