@@ -67,15 +67,15 @@ int main() {
     cout << "Press 5 to change sliding;" << endl;
     cout << "Press 6 to change arm;" << endl;
     cout << "Press 7 to change angle;" << endl;
-    cout << "Press any different key if you are satisfied of the drawing"<< endl;
+    cout << "Press 0 if you are satisfied of the drawing"<< endl;
 
     int choice;
 
-    while(choice != 1 && 2 && 3 && 4 && 5 && 6 && 7){
+    while(choice != 0){
 
         cin >> choice;
 
-        if(choice = 1){
+        if(choice == 1){
 
             double new_base_width;
 
@@ -91,7 +91,7 @@ int main() {
 
         }
 
-        if(choice = 2){
+        if(choice == 2){
 
             double new_base_height;
 
@@ -107,7 +107,7 @@ int main() {
 
         }
 
-        if(choice = 3){
+        if(choice == 3){
 
             double new_base;
 
@@ -123,7 +123,7 @@ int main() {
 
         }
 
-        if(choice = 4){
+        if(choice == 4){
 
             double new_height;
 
@@ -139,7 +139,7 @@ int main() {
 
         }
 
-        if(choice = 5){
+        if(choice == 5){
 
             double new_sliding;
 
@@ -155,7 +155,7 @@ int main() {
 
         }
 
-        if(choice = 6){
+        if(choice == 6){
 
             double new_arm;
 
@@ -171,7 +171,7 @@ int main() {
 
         }
 
-        if(choice = 7){
+        if(choice == 7){
 
             double new_angle;
 
