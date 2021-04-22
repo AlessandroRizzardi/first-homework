@@ -135,12 +135,13 @@ void ale_save_to_file(string text,const char* file_name);
 
 
 /**
- * Given a file-name the function store its contents in a string and prits it
+ * Given a file-name the function store its contents in a given string 
  * 
  * @param text string in which is wanted to store the svg code loaded from the file
  * @param file_name name of the file is wanted to load  
+ * @return text   
 */
-void ale_load_from_file(string text);
+string ale_load_from_file(string text, const char* file_name);
 
 /**
  * ale_parse get a string with svg code and parse it to get the length data and create a new Crane structure
