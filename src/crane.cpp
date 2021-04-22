@@ -222,12 +222,12 @@ void ale_save_to_file(string text, const char* file_name){
 }
 
 
-string ale_load_from_file(string text, const char* file_name ){
+string ale_load_from_file( string file_name ){
 
-    ifstream t(file_name);
+    ifstream t("../" + file_name);
     stringstream buffer;
     buffer << t.rdbuf();
-    text = buffer.str();
+    string text = buffer.str();
     
     return text;
 
