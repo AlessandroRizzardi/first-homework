@@ -282,7 +282,7 @@ TEST_CASE("ale_to_svg should create a string with the right svg code", "[crane]"
 
     string s = ale_load_from_file("crane3.svg");
 
-    Crane* device = ale_init(200,60,50,500,90,400,45);
+    Crane* device = ale_init(200,60,50,500,90,400,0);
 
     string r = ale_to_svg(device);
 
