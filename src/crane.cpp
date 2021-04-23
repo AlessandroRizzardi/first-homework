@@ -225,9 +225,9 @@ int ale_set_angle(Crane* device, double new_angle){
 
 }
 
-void ale_save_to_file(string text, const char* file_name){
+void ale_save_to_file(string text, string file_name){
 
-    ofstream ale_File(file_name);
+    ofstream ale_File("../../" + file_name);
  
     string string_to_write = text;
     
@@ -242,7 +242,7 @@ void ale_save_to_file(string text, const char* file_name){
 
 string ale_load_from_file( string file_name ){
 
-    ifstream t("../" + file_name);
+    ifstream t("../../" + file_name);
     stringstream buffer;
     buffer << t.rdbuf();
     string text = buffer.str();

@@ -131,7 +131,7 @@ int ale_set_angle(Crane* device, double new_angle);
  * @param text string which contains the svg code of the device
  * @param file_name name of the file is wanted to store the svg code
 */
-void ale_save_to_file(string text,const char* file_name);
+void ale_save_to_file(string text,string file_name);
 
 
 /**
