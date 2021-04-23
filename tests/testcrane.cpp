@@ -272,7 +272,7 @@ TEST_CASE("Function ale_set_angle should replace the old length with the new one
 
     ale_set_angle(device, 50);
 
-    REQUIRE(device->arm == 50);
+    REQUIRE(device->angle == 50);
     
 }
 
@@ -347,7 +347,7 @@ TEST_CASE("ale_parse should return a Crane structure with the read length","[cra
     REQUIRE(device->height == 500);
     REQUIRE(device->sliding == 90);
     REQUIRE(device->arm == 400);
-    REQUIRE(device->angle == 45);
+    REQUIRE(device->angle == 0);
 
 }
 
