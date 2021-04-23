@@ -34,7 +34,11 @@ Crane* ale_init(double starting_base_width, double starting_base_height, double 
 
 bool ale_check_constraints (double base_width, double base_height, double base, double height, double sliding, double arm, double angle){
     
-    if(base_width < 0 || base_height < 0 || base < 0 || height < 0 || sliding < 0 || arm < 0 || angle < 0){
+    if(base_width < 0 || base_height < 0 || base < 0 || height < 0 || sliding < 0 || arm < 0 ){
+        return false;
+    }
+
+    if(angle > 90 || angle < -90 ){
         return false;
     }
 

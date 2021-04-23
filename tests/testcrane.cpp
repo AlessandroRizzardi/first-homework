@@ -14,6 +14,12 @@ TEST_CASE("ale_check_constraints should return false if at least one of the leng
 
 }
 
+TEST_CASE("ale_check_constraints should return false if angle is grater than 90 or lower than -90","[crane]"){
+    
+    REQUIRE( ale_check_constraints(200,60,50,500,90,400,-180) == false);
+
+}
+
 TEST_CASE("ale_check_constraints should return false if base_height > base_width","[crane]"){
     
     REQUIRE( ale_check_constraints(200,210,50,500,90,400,45) == false);
