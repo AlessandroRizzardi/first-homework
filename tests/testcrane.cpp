@@ -267,7 +267,7 @@ TEST_CASE("Function ale_set_angle should replace the old length with the new one
 
 TEST_CASE("ale_to_svg should create a string with the right svg code", "[crane]"){
 
-    string s = load_from_file("crane3.svg");
+    string s = ale_load_from_file("crane3.svg");
 
     Crane* device = ale_init(200,60,50,500,90,400,45);
 
@@ -315,7 +315,7 @@ TEST_CASE("ale_parse should return a NULL pointer if the crane drawing in the sv
 
 TEST_CASE("ale_parse should return a non NULL pointer if the crane drawing in the svg file respects constarints", "[crane]"){
     
-    ale_load_from_file("crane.svg");
+    string s = ale_load_from_file("crane.svg");
 
     REQUIRE(ale_parse(s) != NULL);
 
