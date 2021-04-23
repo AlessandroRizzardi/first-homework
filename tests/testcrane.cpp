@@ -267,7 +267,7 @@ TEST_CASE("Function ale_set_angle should replace the old length with the new one
 
 TEST_CASE("ale_to_svg should create a string with the right svg code", "[crane]"){
 
-    string s = load_fro_file("crane3.svg");
+    string s = load_from_file("crane3.svg");
 
     Crane* device = ale_init(200,60,50,500,90,400,45);
 
@@ -284,9 +284,9 @@ TEST_CASE("ale_save_to_file should save in the right filea a given string", "[cr
 
     string s = "Hakunamatata";
 
-    ale_save_to_file(s, PROVA.md);
+    ale_save_to_file(s, "PROVA.md");
 
-    string r = load_from_file(PROVA.md);
+    string r = ale_load_from_file("PROVA.md");
 
     REQUIRE(r == s);
 
@@ -298,7 +298,7 @@ TEST_CASE("ale_save_to_file should save in the right filea a given string", "[cr
 
 TEST_CASE("ale_load_form file should return a string with the cintents of yhe file","[crane]"){
 
-    string s = ale_load_from_file(PROVA2.md);
+    string s = ale_load_from_file("PROVA2.md");
 
     REQUIRE(s == "Ciao, come stai?");
 }
@@ -324,7 +324,7 @@ TEST_CASE("ale_parse should return a non NULL pointer if the crane drawing in th
 TEST_CASE("ale_parse should return a Crane structure with the read length","[crane]"){
 
 
-    ale_load_from_file("crane.svg");
+    string s = ale_load_from_file("crane.svg");
 
     Crane* device = ale_parse(s);
 
