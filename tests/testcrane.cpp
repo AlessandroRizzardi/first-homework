@@ -8,6 +8,13 @@ TEST_CASE("ale_check_constraints should return true if all the constraints are r
     REQUIRE( ale_check_constraints(200,60,50,500,90,400,45) == true);
 }
 
+TEST_CASE("ale_check_constraints should return false if the drawing is out of the space allowed","[crane]"){
+
+    REQUIRE( ale_check_constraints(200,60,50,700,90,500,45) == false);
+    REQUIRE( ale_check_constraints(200,110,50,500,90,400,45) == false);
+    REQUIRE( ale_check_constraints(700,60,50,500,90,400,45) == false);
+}
+
 TEST_CASE("ale_check_constraints should return false if at least one of the length is negative","[crane]"){
     
     REQUIRE( ale_check_constraints(-200,60,50,500,90,400,45) == false);

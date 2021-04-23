@@ -38,10 +38,24 @@ bool ale_check_constraints (double base_width, double base_height, double base, 
         return false;
     }
 
+    if((800 - (height + arm * 0.25) < 0)){
+        return false;
+    }
+
+    if((base_height) > 100){
+        return false;
+    }
+
+    if(base_width > 600){
+        return false;
+    }
+
+
     if(angle > 90 || angle < -90 ){
         return false;
     }
 
+    
     if(base_height > base_width){
         return false;
     }
