@@ -265,37 +265,70 @@ TEST_CASE("Function ale_set_angle should replace the old length with the new one
 
 // testing ale_to_svg
 
+TEST_CASE("ale_to_svg should create a string with the right svg code", "[crane]"){
+
+    string s = load_fro_file("crane3.svg");
+
+    Crane* device = ale_init(200,60,50,500,90,400,45);
+
+    string r = ale_to_svg(device);
+
+    REQUIRE(r == s);
+
+}
+
+//testing ale_save_to_file
+
+
+TEST_CASE("ale_save_to_file should save in the right filea a given string", "[crane]"){
+
+    string s = "Hakunamatata";
+
+    ale_save_to_file(s, PROVA.md);
+
+    string r = load_from_file(PROVA.md);
+
+    REQUIRE(r == s);
+
+}
+
+
+
+//testing load_from_file
+
+TEST_CASE("ale_load_form file should return a string with the cintents of yhe file","[crane]"){
+
+    string s = ale_load_from_file(PROVA2.md);
+
+    REQUIRE(s == "Ciao, come stai?");
+}
+
 
 //testing ale_parse
 
 TEST_CASE("ale_parse should return a NULL pointer if the crane drawing in the svg file does not respect the constarints" ,"[crane]"){
 
-    string s = "";
-
-    ale_load_from_file(s, "crane2.svg");
+    string s = ale_load_from_file("crane2.svg");
 
     REQUIRE(ale_parse(s) == NULL);
 }
 
 TEST_CASE("ale_parse should return a non NULL pointer if the crane drawing in the svg file respects constarints", "[crane]"){
     
-    string s = "";
+    ale_load_from_file("crane.svg");
 
-    ale_load_from_file(s,"crane.svg");
-
-    REQUIRE(ale_parse(s) == NULL);
+    REQUIRE(ale_parse(s) != NULL);
 
 }
 
 TEST_CASE("ale_parse should return a Crane structure with the read length","[crane]"){
 
-    string s = "";
 
-    ale_load_from_file(s,"crane.svg");
+    ale_load_from_file("crane.svg");
 
     Crane* device = ale_parse(s);
 
-     REQUIRE(device->base_width == 200);
+    REQUIRE(device->base_width == 200);
     REQUIRE(device->base_height == 60);
     REQUIRE(device->base == 50);
     REQUIRE(device->height == 500);
