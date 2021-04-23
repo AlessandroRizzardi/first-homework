@@ -1,0 +1,7 @@
+
+<svg  width = "1000" height = "900">
+<rect x = "400" y = "800" width = "200" height = "60"  stroke = "black" stroke-width = "3" fill = "blue" />
+<rect x = "490" y = "300" width = "50" height = "500" stroke = "black" stroke-width = "3" fill = "red" />
+<rect x = "415" y = "300" width = "400" height = "50" stroke = "black" stroke-width = "3" fill = "green" transform  = "rotate(-0,515,325)"/>
+<circle cx = "515" cy = "325" r = "25" stroke = "black" stroke-width = "3" fill = "grey"/>
+</svg>
