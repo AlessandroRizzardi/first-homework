@@ -48,7 +48,7 @@ int main() {
     cin >> angle;
     cout << endl;
     
-    Crane* device = ale_init(200, 60, 50, 500, 90, 400, 45);
+    AleCrane* device = ale_init(200, 60, 50, 500, 90, 400, 45);
 
     string svg_code = ale_to_svg(device);
 
