@@ -10,7 +10,7 @@ using namespace std;
  * 
  * 
 */
-struct Crane{
+struct AleCrane{
 
     double base_width;
     double base_height;
@@ -38,7 +38,7 @@ struct Crane{
  * @param starting_angle value in degree of the arm's rotation
  * @return a pointer pointing to the Crane structure initialized with parameters
 */
-Crane* ale_init(double starting_base_width, double starting_base_height, double starting_base, double starting_height, double starting_sliding, double starting_arm, double starting_angle);
+AleCrane* ale_init(double starting_base_width, double starting_base_height, double starting_base, double starting_height, double starting_sliding, double starting_arm, double starting_angle);
 
 /**
  * Checks if all the constraints of the device are respected
@@ -60,7 +60,7 @@ bool ale_check_constraints(double base_width, double base_height, double base, d
  * @param device Crane structure with the length assigned
  * @return a string with svg code 
 */
-string ale_to_svg(Crane* device);
+string ale_to_svg(AleCrane* device);
 
 /**
  * Given a new base-support width value checks if it respects constraints and assigns the new value to the device
@@ -69,7 +69,7 @@ string ale_to_svg(Crane* device);
  * @param new_base_width new length is wanted to set
  * @return 1 if the new device's new leght does not respects constraints, 0 if it respects them  
 */
-int ale_set_base_width(Crane* device, double new_base_width);
+int ale_set_base_width(AleCrane* device, double new_base_width);
 
 /**
  * Given a new base-support height value checks if it respects constraints and assigns the new value to the device
@@ -78,7 +78,7 @@ int ale_set_base_width(Crane* device, double new_base_width);
  * @param new_base_width new lenght is wanted to set
  * @return 1 if the new device's new leght does not respects constraints, 0 if it respects them  
 */
-int ale_set_base_height(Crane* device, double new_base_height);
+int ale_set_base_height(AleCrane* device, double new_base_height);
 
 /**
  * Given a new crane-base width value checks if it respects constraints and assigns the new value to the device
@@ -87,7 +87,7 @@ int ale_set_base_height(Crane* device, double new_base_height);
  * @param new_base_width new lenght is wanted to set
  * @return 1 if the new device's new leght does not respects constraints, 0 if it respects them  
 */
-int ale_set_base(Crane* device, double new_base);
+int ale_set_base(AleCrane* device, double new_base);
 
 /**
  * Given a new crane height value checks if it respects constraints and assigns the new value to the device
@@ -96,7 +96,7 @@ int ale_set_base(Crane* device, double new_base);
  * @param new_base_width new lenght is wanted to set
  * @return 1 if the new device's new leght does not respects constraints, 0 if it respects them  
 */
-int ale_set_height(Crane* device, double new_height);
+int ale_set_height(AleCrane* device, double new_height);
 
 /**
  * Given a new crane's sliding value checks if it respects constraints and assigns the new value to the device
@@ -105,7 +105,7 @@ int ale_set_height(Crane* device, double new_height);
  * @param new_base_width new lenght is wanted to set
  * @return 1 if the new device's new leght does not respects constraints, 0 if it respects them  
 */
-int ale_set_sliding(Crane* device, double new_sliding);
+int ale_set_sliding(AleCrane* device, double new_sliding);
 
 /**
  * Given a new arm's length value checks if it respects constraints and assigns the new value to the device
@@ -114,7 +114,7 @@ int ale_set_sliding(Crane* device, double new_sliding);
  * @param new_base_width new lenght is wanted to set
  * @return 1 if the new device's new leght does not respects constraints, 0 if it respects them  
 */
-int ale_set_arm(Crane* device, double new_arm);
+int ale_set_arm(AleCrane* device, double new_arm);
 
 /**
  * Given a new ratation's angle value checks if it respects constraints and assigns the new value to the device
@@ -123,7 +123,7 @@ int ale_set_arm(Crane* device, double new_arm);
  * @param new_base_width new lenght is wanted to set
  * @return 1 if the new device's new leght does not respects constraints, 0 if it respects them  
 */
-int ale_set_angle(Crane* device, double new_angle);
+int ale_set_angle(AleCrane* device, double new_angle);
 
 /**
  * Given a string of svg code it stores the code in a given file-name
@@ -149,7 +149,7 @@ string ale_load_from_file(string file_name);
  * @param svg string which contains the svg code
  * @return NULL if the lengths dont respect cobnstraints, otherwise a pointer to a a Crane structure 
 */
-Crane* ale_parse(string svg);
+AleCrane* ale_parse(string svg);
 
 
 

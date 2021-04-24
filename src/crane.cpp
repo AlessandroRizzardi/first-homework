@@ -12,9 +12,9 @@ using namespace std;
 
 
 
-Crane* ale_init(double starting_base_width, double starting_base_height, double starting_base, double starting_height, double starting_sliding, double starting_arm, double starting_angle){
+AleCrane* ale_init(double starting_base_width, double starting_base_height, double starting_base, double starting_height, double starting_sliding, double starting_arm, double starting_angle){
 
-    Crane* crane = new Crane;
+    AleCrane* crane = new AleCrane;
 
     if(ale_check_constraints(starting_base_width, starting_base_height, starting_base, starting_height, starting_sliding, starting_arm, starting_angle) == false){
         return NULL;
@@ -83,7 +83,7 @@ bool ale_check_constraints (double base_width, double base_height, double base, 
     return true;
 }
 
-string ale_to_svg(Crane* device){
+string ale_to_svg(AleCrane* device){
 
     string text = "";
 
@@ -138,7 +138,7 @@ string ale_to_svg(Crane* device){
 
 }
 
-int ale_set_base_width(Crane* device, double new_base_width){ 
+int ale_set_base_width(AleCrane* device, double new_base_width){ 
 
     if(ale_check_constraints(new_base_width, device->base_height, device->base, device->height, device->sliding,device->arm, device->angle) == false){
         return 1;
@@ -151,7 +151,7 @@ int ale_set_base_width(Crane* device, double new_base_width){
 }
 
 
-int ale_set_base_height(Crane* device, double new_base_height){ 
+int ale_set_base_height(AleCrane* device, double new_base_height){ 
 
     if(ale_check_constraints(device->base_width, new_base_height, device->base, device->height, device->sliding,device->arm, device->angle) == false){
         return 1;
@@ -164,7 +164,7 @@ int ale_set_base_height(Crane* device, double new_base_height){
 }
 
 
-int ale_set_base(Crane* device, double new_base){ 
+int ale_set_base(AleCrane* device, double new_base){ 
 
     if(ale_check_constraints(device->base_width, device->base_height, new_base, device->height, device->sliding,device->arm, device->angle) == false){
         return 1;
@@ -177,7 +177,7 @@ int ale_set_base(Crane* device, double new_base){
 }
 
 
-int ale_set_height(Crane* device, double new_height){ 
+int ale_set_height(AleCrane* device, double new_height){ 
 
     if(ale_check_constraints(device->base_width, device->base_height, device->base, new_height, device->sliding,device->arm, device->angle) == false){
         return 1;
@@ -189,7 +189,7 @@ int ale_set_height(Crane* device, double new_height){
 
 }
 
-int ale_set_sliding(Crane* device, double new_sliding){ 
+int ale_set_sliding(AleCrane* device, double new_sliding){ 
 
     if(ale_check_constraints(device->base_width, device->base_height, device->base, device->height, new_sliding,device->arm, device->angle) == false){
         return 1;
@@ -201,7 +201,7 @@ int ale_set_sliding(Crane* device, double new_sliding){
 
 }
 
-int ale_set_arm(Crane* device, double new_arm){ 
+int ale_set_arm(AleCrane* device, double new_arm){ 
 
     if(ale_check_constraints(device->base_width, device->base_height, device->base, device->height, device->sliding, new_arm, device->angle) == false){
         return 1;
@@ -213,7 +213,7 @@ int ale_set_arm(Crane* device, double new_arm){
 
 }
 
-int ale_set_angle(Crane* device, double new_angle){ 
+int ale_set_angle(AleCrane* device, double new_angle){ 
 
     if(ale_check_constraints(device->base_width, device->base_height, device->base, device->height, device->sliding,device->arm, new_angle) == false){
         return 1;
@@ -251,7 +251,7 @@ string ale_load_from_file( string file_name ){
 
 }
 
-Crane* ale_parse(string svg){
+AleCrane* ale_parse(string svg){
 
     double read_base_width;
     double read_base_height;
@@ -341,7 +341,7 @@ Crane* ale_parse(string svg){
         return NULL;
     }
 
-    Crane* device = ale_init(read_base_width, read_base_height, read_base, read_height, read_sliding, read_arm, read_angle);
+    AleCrane* device = ale_init(read_base_width, read_base_height, read_base, read_height, read_sliding, read_arm, read_angle);
 
     return device;
    
