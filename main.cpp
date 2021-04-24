@@ -8,6 +8,8 @@
 
 using namespace std;
 
+string error_message = "ERROR: constraints not respected!";
+
 int main() {
     
     double base_width;
@@ -50,13 +52,18 @@ int main() {
     
     AleCrane* device = ale_init(200, 60, 50, 500, 90, 400, 45);
 
+    if(device == NULL){
+        cout << error_message << endl;
+        exit(1);
+    }
+
     string svg_code = ale_to_svg(device);
 
     ale_save_to_file(svg_code,"newcrane.svg");
 
     cout << "Svg file has been created" << endl;
 
-    int choice ;
+    char choice ;
 
     do{
         
@@ -69,12 +76,12 @@ int main() {
         cout << "Press 5 to change sliding;" << endl;
         cout << "Press 6 to change arm;" << endl;
         cout << "Press 7 to change angle;" << endl;
-        cout << "Press 0 if you are satisfied of the drawing"<< endl;
+        cout << "Press any other keys if you are satisfied of the drawing"<< endl;
 
             
         cin >> choice;
 
-        if(choice == 1){
+        if(choice == '1'){
 
             double new_base_width;
 
@@ -84,13 +91,18 @@ int main() {
 
             ale_set_base_width(device, new_base_width);
 
+            if( ale_set_base_width(device, new_base_width) == 1){
+                cout << error_message << endl;
+                exit(1);
+            }
+
             string svg_code = ale_to_svg(device);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
         }
 
-        if(choice == 2){
+        if(choice == '2'){
 
             double new_base_height;
 
@@ -100,13 +112,18 @@ int main() {
 
             ale_set_base_height(device, new_base_height);
 
+            if(ale_set_base_height(device, new_base_height) == 1){
+                cout << error_message << endl;
+                exit(1);
+            }
+
             string svg_code = ale_to_svg(device);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
         }
 
-        if(choice == 3){
+        if(choice == '3'){
 
             double new_base;
 
@@ -115,6 +132,11 @@ int main() {
             cin >> new_base;
 
             ale_set_base(device, new_base);
+            
+            if( ale_set_base(device, new_base) == 1){
+                cout << error_message << endl;
+                exit(1);
+            }
 
             string svg_code = ale_to_svg(device);
 
@@ -122,7 +144,7 @@ int main() {
 
         }
 
-        if(choice == 4){
+        if(choice == '4'){
 
             double new_height;
 
@@ -132,13 +154,18 @@ int main() {
 
             ale_set_height(device, new_height);
 
+            if(ale_set_height(device, new_height) == 1){
+                cout << error_message << endl;
+                exit(1);  
+            }
+
             string svg_code = ale_to_svg(device);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
         }
 
-        if(choice == 5){
+        if(choice == '5'){
 
             double new_sliding;
 
@@ -148,13 +175,18 @@ int main() {
 
             ale_set_sliding(device, new_sliding);
 
+            if(ale_set_sliding(device, new_sliding) == 1){
+                cout << error_message << endl;
+                exit(1);
+            }
+
             string svg_code = ale_to_svg(device);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
         }
 
-        if(choice == 6){
+        if(choice == '6'){
 
             double new_arm;
 
@@ -164,13 +196,18 @@ int main() {
 
             ale_set_arm(device, new_arm);
 
+            if(ale_set_arm(device, new_arm) == 1){
+                cout << error_message << endl;
+                exit(1);
+            }
+
             string svg_code = ale_to_svg(device);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
         }
 
-        if(choice == 7){
+        if(choice == '7'){
 
             double new_angle;
 
@@ -180,15 +217,28 @@ int main() {
 
             ale_set_angle(device, new_angle);
 
+            if(ale_set_angle(device, new_angle) == 1){
+                cout << error_message << endl;
+                exit(1);
+            }
+
             string svg_code = ale_to_svg(device);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
         }
         
-    } while(choice != 0);
+    } while(choice == '1' || choice == '2' || choice == '3' || choice == '4' || choice == '5' || choice == '6' || choice == '7' );
 
     
+    cout << "your drawing legths are:" << endl;
+    cout << "base_width: " << device->base_width << endl;
+    cout << "base_height: " << device->base_height << endl;
+    cout << "base: " << device->base << endl;
+    cout << "height: " << device->height << endl;
+    cout << "sliding: " << device->sliding << endl;
+    cout << "arm: " << device->arm << endl;
+    cout << "angle: " << device->angle << endl;
 
 
 
