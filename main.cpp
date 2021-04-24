@@ -35,7 +35,7 @@ int main() {
     cout << endl;
 
     cout << "Height: ";
-    cin >> base_height;
+    cin >> height;
     cout << endl;
 
     cout << "Sliding: ";
@@ -50,7 +50,7 @@ int main() {
     cin >> angle;
     cout << endl;
     
-    AleCrane* device = ale_init(200, 60, 50, 500, 90, 400, 45);
+    AleCrane* device = ale_init(base_width, base_height, base, height, sliding, arm, angle);
 
     if(device == NULL){
         cout << error_message << endl;
