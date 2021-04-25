@@ -137,9 +137,9 @@ string eb_to_svg(EbDevice* eb_device, bool with_measures){
             angolo negativo --> asta ruota in senso antiorario(verso dx)
         */
         code+="<g transform  = \"rotate("+to_string(angle)+","+to_string(Xcir)+",120)\">\n";
-        code+="<rect x = \""+to_string((int)(Xcir-std_radius))+"\" y = \"120\" width = \"20\" height = \"" + to_string(length) + "\" stroke = \"black\" stroke-width = \"3\" fill = \"orange\" />\n";
+        code+="<rect x = \""+to_string((Xcir-std_radius))+"\" y = \"120\" width = \"20\" height = \"" + to_string(length) + "\" stroke = \"black\" stroke-width = \"3\" fill = \"orange\" />\n";
         code+="<text x = \""+to_string(Xcir+(widthTt/2)+40)+"\" y = \""+to_string(std_Ycir+(length/2))+"\" fill = \"black\"> length_shaft = "+to_string((int)length)+" </text>\n";
-        code+="<line x1 = \""+to_string((int)(Xcir+(widthTt/2)+30))+"\" y1 = \"120\" x2 = \""+to_string((Xcir+(widthTt/2)+30))+"\" y2 = \""+to_string((120+length))+"\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
+        code+="<line x1 = \""+to_string((Xcir+(widthTt/2)+30))+"\" y1 = \"120\" x2 = \""+to_string((Xcir+(widthTt/2)+30))+"\" y2 = \""+to_string((120+length))+"\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
         code+="<text x = \""+to_string(Xcir-std_radius-80)+"\" y = \""+to_string(std_Ycir-10+(length/2))+"\" fill = \"black\"> angle="+to_string((int)angle)+" </text>\n";
         code+="<line x1 = \""+to_string(Xcir-std_radius-70)+"\" y1 = \""+to_string(std_Ycir+(length/2))+"\" x2 = \""+to_string(Xcir-std_radius)+"\" y2 = \""+to_string(std_Ycir+(length/2))+"\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
         code+="<circle cx = \""+to_string(Xcir)+"\" cy = \"120\" r = \"10\" stroke = \"black\" stroke-width = \"3\" fill = \"white\"/>\n";
@@ -149,7 +149,7 @@ string eb_to_svg(EbDevice* eb_device, bool with_measures){
             piattaforma
         */
         code+="<g>\n";
-        code+="<rect x = \""+to_string((int)Xplatform)+"\" y = \""+to_string((int)Yplatform)+"\" width = \""+to_string(widthPla)+"\" height = \"20\"  stroke = \"black\" stroke-width = \"3\" fill = \"black\" />\n";
+        code+="<rect x = \""+to_string(Xplatform)+"\" y = \""+to_string(Yplatform)+"\" width = \""+to_string(widthPla)+"\" height = \"20\"  stroke = \"black\" stroke-width = \"3\" fill = \"black\" />\n";
         code+="<text x = \""+to_string(Xplatform+(widthPla/4))+"\" y = \""+to_string(Yplatform+std_platformHeight+40)+"\" fill = \"black\"> width_platform = "+to_string((int)widthPla)+" </text>\n";
         code+="<line x1 = \""+to_string(Xplatform)+"\" y1 = \""+to_string(Yplatform+std_platformHeight+20)+"\" x2 = \""+to_string(Xplatform+widthPla)+"\" y2 = \""+to_string(Yplatform+std_platformHeight+20)+"\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
         code+="</g>\n\n";
@@ -181,7 +181,7 @@ string eb_to_svg(EbDevice* eb_device, bool with_measures){
         carrello gru con spostamento orizzontale
     */
     code+="<g>\n";
-    code+="<rect x = \""+to_string((int)sliding)+"\" y = \"100\" width = \"" + to_string(widthTt) +"\" height = \"40\" stroke = \"black\" stroke-width = \"3\" fill = \"yellow\"/>\n";
+    code+="<rect x = \""+to_string(sliding)+"\" y = \"100\" width = \"" + to_string(widthTt) +"\" height = \"40\" stroke = \"black\" stroke-width = \"3\" fill = \"yellow\"/>\n";
     code+="</g>\n\n";
 
     /*
@@ -190,7 +190,7 @@ string eb_to_svg(EbDevice* eb_device, bool with_measures){
         angolo negativo --> asta ruota in senso antiorario(verso dx)
     */
     code+="<g transform  = \"rotate("+to_string(angle)+","+to_string(Xcir)+",120)\">\n";
-    code+="<rect x = \""+to_string((int)(Xcir-std_radius))+"\" y = \"120\" width = \"20\" height = \"" + to_string(length) + "\" stroke = \"black\" stroke-width = \"3\" fill = \"orange\" />\n";
+    code+="<rect x = \""+to_string((Xcir-std_radius))+"\" y = \"120\" width = \"20\" height = \"" + to_string(length) + "\" stroke = \"black\" stroke-width = \"3\" fill = \"orange\" />\n";
     code+="<circle cx = \""+to_string(Xcir)+"\" cy = \"120\" r = \"10\" stroke = \"black\" stroke-width = \"3\" fill = \"white\"/>\n";
     code+="</g>\n\n";
 
@@ -198,7 +198,7 @@ string eb_to_svg(EbDevice* eb_device, bool with_measures){
         piattaforma
     */
     code+="<g>\n";
-    code+="<rect x = \""+to_string((int)Xplatform)+"\" y = \""+to_string((int)Yplatform)+"\" width = \""+to_string(widthPla)+"\" height = \"20\"  stroke = \"black\" stroke-width = \"3\" fill = \"black\" />\n";
+    code+="<rect x = \""+to_string(Xplatform)+"\" y = \""+to_string(Yplatform)+"\" width = \""+to_string(widthPla)+"\" height = \"20\"  stroke = \"black\" stroke-width = \"3\" fill = \"black\" />\n";
     code+="</g>\n\n";
 
     code+="</svg>\n";
@@ -356,7 +356,7 @@ EbDevice* eb_parse(string svg){
 
 
     //getting width_towtruck
-    string element2 = eb_extractValue(svg,"rect x = \"400\" y = \"100\" width = \"","\"");
+    string element2 = eb_extractValue(svg,"\" width = \"","\"");
     width_towtruck = stod(element2);
 
     
@@ -365,11 +365,11 @@ EbDevice* eb_parse(string svg){
     rotation = stod(element3);
     
     //getting length_shaft
-    string element4 = eb_extractValue(svg,"rect x = \"470\" y = \"120\" width = \"20\" height = \"","\"");
+    string element4 = eb_extractValue(svg,"\" height = \"","\"");
     length_shaft = stod(element4);
 
     //getting width_platform
-    string element5 = eb_extractValue(svg,"rect x = \"620\" y = \"629\" width = \"","\"");
+    string element5 = eb_extractValue(svg,"\" width = \"","\"");
     width_platform = stod(element5);
 
 
