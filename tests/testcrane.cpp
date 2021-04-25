@@ -284,7 +284,9 @@ TEST_CASE("ale_to_svg should create a string with the right svg code", "[crane]"
 
     AleCrane* device = ale_init(200,60,50,500,90,400,0);
 
-    string r = ale_to_svg(device);
+    bool with_measures = 0;
+
+    string r = ale_to_svg(device, 0);
 
     REQUIRE(r == s);
 

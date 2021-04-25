@@ -83,58 +83,129 @@ bool ale_check_constraints (double base_width, double base_height, double base, 
     return true;
 }
 
-string ale_to_svg(AleCrane* device){
+string ale_to_svg(AleCrane* device, bool with_measures){
 
     string text = "";
 
-    text += "<svg  width = \"1000\" height = \"900\">\n";
+    if(with_measures == true){
 
-    text += "<rect x = \"400\" y = \"800\" width =\"";
-    text += to_string(device->base_width);
-    text += "\" height = \"";
-    text += to_string(device->base_height);
-    text += "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />\n";
+        text += "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n\n";
+        text += "<svg xmlns=\"http://www.w3.org/2000/svg\"  width = \"1000\" height = \"900\">\n\n";
 
-    text += "<rect x = \"";
-    double ax = 400 + device->sliding;
-    text += to_string(ax);
-    text += "\" y = \"";
-    double ay = 800 - device->height;
-    text += to_string(ay);
-    text += "\" width = \"";
-    text += to_string(device->base);
-    text += "\" height = \"";
-    text += to_string(device->height);
-    text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"red\" />\n";
+        text += "<g>\n";
+        text += "<rect x = \"400\" y = \"800\" width =\"";
+        text += to_string(device->base_width);
+        text += "\" height = \"";
+        text += to_string(device->base_height);
+        text += "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />\n";
+        text += "<text x = \"" + to_string(400 + (device->base_width)/2) + "\" y = \"" + to_string(800 + device->base_height + 40) + "\" fill = \"black\">" + to_string(device->base_width) + "m </text>\n";
+        text += "<line x1 = \"400\" y1 = \"" + to_string(800 + device->base_height + 20) + "\" x2 = \"" + to_string(400 + device->base_width) + "\" y2 = \"" + to_string(800 + device->base_height + 20) + "\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
+        text += "<text x = \"" + to_string(400 + (device->base_width) + 50) + "\" y = \"" + to_string(800 + (device->base_height)/2) + "\" fill = \"black\">" + to_string(device->base_height) + "m </text>";
+        text += "<line x1 = \"" + to_string(400 + device->base_width + 10) + "\" y1 = \"" + to_string(800) + "\" x2 = \"" + to_string(400 + device->base_width  + 10) + "\" y2 = \"" + to_string(800 + device->base_height) + "\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
+        text += "</g>\n\n";
 
-    text += "<rect x = \"";
-    double bx = ax + (device->base)*0.5 - 0.25 * (device->arm);
-    text += to_string(bx);
-    text += "\" y = \"";
-    double by = ay;
-    text += to_string(by);
-    text += "\" width = \""; 
-    text += to_string(device->arm);
-    text += "\" height = \"";
-    text += to_string(device->base);
-    text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"green\" transform  = \"rotate(";
-    text += to_string(device->angle);
-    text += ",";
-    text += to_string(ax + 0.5*device->base);
-    text += ",";
-    text += to_string(ay + 0.5*device->base);
-    text += ")\"/>\n";
-    
-    text += "<circle cx = \"";
-    text += to_string(ax + 0.5*device->base);
-    text += "\" cy = \"";
-    text += to_string(ay + 0.5*device->base);
-    text += "\" r = \"";
-    text += to_string(0.5*device->base);
-    text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>\n";
-    text += "</svg>"; 
+        text += "<g>\n";
+        text += "<rect x = \"";
+        double ax = 400 + device->sliding;
+        text += to_string(ax);
+        text += "\" y = \"";
+        double ay = 800 - device->height;
+        text += to_string(ay);
+        text += "\" width = \"";
+        text += to_string(device->base);
+        text += "\" height = \"";
+        text += to_string(device->height);
+        text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"red\" />\n";
+        text += "<text x = \"" + to_string(400 + device->sliding + (device->base)/2) + "\" y = \"" + to_string(800 + 30) + "\" fill = \"black\">" + to_string(device->base) + "m </text>\n";
+        text += "<line x1 = \"" + to_string(400 + device->sliding) + "\" y1 = \"" + to_string(800 + 10) + "\" x2 = \"" + to_string(400 + device->sliding + device->base) + "\" y2 = \"" + to_string(800 + 10) + "\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
+        text += "<text x = \"" + to_string(400 - 200) + "\" y = \"" + to_string(800 - (device->height)/2) + "\" fill = \"black\">" + to_string(device->height) + "m </text>";
+        text += "<line x1 = \"" + to_string(400 - 100) + "\" y1 = \"" + to_string(800 - device->height) + "\" x2 = \"" + to_string(400 - 100) + "\" y2 = \"" + to_string(800) + "\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
+        text += "</g>\n\n";
 
-    return text;
+        text += "<g>\n";
+        text += "<line x1 = \"" + to_string(400) + "\" y1 = \"" + to_string(800 - 10) + "\" x2 = \"" + to_string(400 + device->sliding) + "\" y2 = \"" + to_string(800 - 10) + "\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
+        text += "<text x = \"" + to_string(400 + (device->sliding)/4) + "\" y = \"" + to_string(800 - 20) + "\" fill = \"black\">" + to_string(device->sliding) + "m </text>";
+        text += "</g>\n\n";
+
+
+        text += "<g transform  = \"rotate(" + to_string(device->angle) + "," + to_string(ax + 0.5*device->base) + "," +  to_string(ay + 0.5*device->base) + ")\">\n";
+        text += "<rect x = \"";
+        double bx = ax + (device->base)*0.5 - 0.25 * (device->arm);
+        text += to_string(bx);
+        text += "\" y = \"";
+        double by = ay;
+        text += to_string(by);
+        text += "\" width = \""; 
+        text += to_string(device->arm);
+        text += "\" height = \"";
+        text += to_string(device->base);
+        text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"green\" />\n";
+        text += "<text x = \"" + to_string(bx + (device->arm)/2) + "\" y = \"" + to_string(by - 30) + "\" fill = \"black\">" + to_string(device->arm) + "m </text>\n";
+        text += "<line x1 = \"" + to_string(bx) + "\" y1 = \"" + to_string(by - 20) + "\" x2 = \"" + to_string(bx + device->arm) + "\" y2 = \"" + to_string(by - 20) + "\"  stroke = \"black\" stroke-width  = \"2\"/>\n";
+        text += "</g>\n\n";
+        
+        text += "<circle cx = \"";
+        text += to_string(ax + 0.5*device->base);
+        text += "\" cy = \"";
+        text += to_string(ay + 0.5*device->base);
+        text += "\" r = \"";
+        text += to_string(0.5*device->base);
+        text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>\n\n";
+        text += "</svg>"; 
+
+        return text;
+
+    }else{
+
+        text += "<svg  width = \"1000\" height = \"900\">\n";
+
+        text += "<rect x = \"400\" y = \"800\" width =\"";
+        text += to_string(device->base_width);
+        text += "\" height = \"";
+        text += to_string(device->base_height);
+        text += "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />\n";
+
+        text += "<rect x = \"";
+        double ax = 400 + device->sliding;
+        text += to_string(ax);
+        text += "\" y = \"";
+        double ay = 800 - device->height;
+        text += to_string(ay);
+        text += "\" width = \"";
+        text += to_string(device->base);
+        text += "\" height = \"";
+        text += to_string(device->height);
+        text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"red\" />\n";
+
+        text += "<rect x = \"";
+        double bx = ax + (device->base)*0.5 - 0.25 * (device->arm);
+        text += to_string(bx);
+        text += "\" y = \"";
+        double by = ay;
+        text += to_string(by);
+        text += "\" width = \""; 
+        text += to_string(device->arm);
+        text += "\" height = \"";
+        text += to_string(device->base);
+        text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"green\" transform  = \"rotate(";
+        text += to_string(device->angle);
+        text += ",";
+        text += to_string(ax + 0.5*device->base);
+        text += ",";
+        text += to_string(ay + 0.5*device->base);
+        text += ")\"/>\n";
+        
+        text += "<circle cx = \"";
+        text += to_string(ax + 0.5*device->base);
+        text += "\" cy = \"";
+        text += to_string(ay + 0.5*device->base);
+        text += "\" r = \"";
+        text += to_string(0.5*device->base);
+        text += "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>\n";
+        text += "</svg>"; 
+
+        return text;
+    }
 
 }
 

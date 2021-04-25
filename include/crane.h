@@ -58,9 +58,10 @@ bool ale_check_constraints(double base_width, double base_height, double base, d
  * Generates a string which contains the svg code 
  * 
  * @param device Crane structure with the length assigned
+ * @param with_measures bool parameters to introdice measures (added measures if true)
  * @return a string with svg code 
 */
-string ale_to_svg(AleCrane* device);
+string ale_to_svg(AleCrane* device, bool with_measures);
 
 /**
  * Given a new base-support width value checks if it respects constraints and assigns the new value to the device

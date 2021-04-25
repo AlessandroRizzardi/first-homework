@@ -57,7 +57,13 @@ int main() {
         exit(1);
     }
 
-    string svg_code = ale_to_svg(device);
+    bool with_meausures;
+    
+    cout << "Do you want to add measures to you drawing? Press 1 if yo do, press 0 if you don't: ";
+    cin >> with_meausures;
+    cout << endl;
+
+    string svg_code = ale_to_svg(device,with_meausures);
 
     ale_save_to_file(svg_code,"newcrane.svg");
 
@@ -96,7 +102,7 @@ int main() {
                 exit(1);
             }
 
-            string svg_code = ale_to_svg(device);
+            string svg_code = ale_to_svg(device,with_meausures);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
@@ -117,7 +123,7 @@ int main() {
                 exit(1);
             }
 
-            string svg_code = ale_to_svg(device);
+            string svg_code = ale_to_svg(device,with_meausures);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
@@ -138,7 +144,7 @@ int main() {
                 exit(1);
             }
 
-            string svg_code = ale_to_svg(device);
+            string svg_code = ale_to_svg(device,with_meausures);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
@@ -159,7 +165,7 @@ int main() {
                 exit(1);  
             }
 
-            string svg_code = ale_to_svg(device);
+            string svg_code = ale_to_svg(device,with_meausures);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
@@ -180,7 +186,7 @@ int main() {
                 exit(1);
             }
 
-            string svg_code = ale_to_svg(device);
+            string svg_code = ale_to_svg(device,with_meausures);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
@@ -201,7 +207,7 @@ int main() {
                 exit(1);
             }
 
-            string svg_code = ale_to_svg(device);
+            string svg_code = ale_to_svg(device,with_meausures);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
@@ -222,7 +228,7 @@ int main() {
                 exit(1);
             }
 
-            string svg_code = ale_to_svg(device);
+            string svg_code = ale_to_svg(device,with_meausures);
 
             ale_save_to_file(svg_code, "newcrane.svg");
 
@@ -240,11 +246,7 @@ int main() {
     cout << "arm: " << device->arm << endl;
     cout << "angle: " << device->angle << endl;
 
-
-
-
-
-
+    delete device;
 
 
 
