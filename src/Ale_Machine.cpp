@@ -51,7 +51,7 @@ AleMachine* ale_machine_init(AleCrane* device1 ,EbDevice* device2, double arm_sl
 
 bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double arm_sliding, double platform_sliding){
 
-    if(device1->angle == 0){
+    if(device1->angle != 0){
         return false;
     }
 
@@ -68,6 +68,10 @@ bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double 
     }
 
     if(platform_sliding > device2->width_platform){
+        return false;
+    }
+
+    if((device2->sliding + device2->width_towtruck) > 0.75 * device1->arm){
         return false;
     }
 
