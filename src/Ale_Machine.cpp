@@ -13,22 +13,21 @@ const double std_shaftWidth = 20;
 const double std_towtruckHeight = 40;
 const double std_platformHeight = 20;
 
-AleMachine* ale_machine_init(AleCrane* device1 ,EbDevice* device2, double arm_sliding, double platform_sliding , int n){
+AleMachine* ale_machine_init(AleCrane* device1 ,EbDevice* device2,  double platform_sliding , int n){
 
     AleMachine* machine = new AleMachine;
 
-    if(ale_check_machine_constraints(device1, device2, arm_sliding, platform_sliding) == false){
+    if(ale_check_machine_constraints(device1, device2, platform_sliding) == false){
         return NULL;
     }
 
-    machine->arm_sliding = arm_sliding;
     machine->platform_sliding = platform_sliding;
 
     machine->arr1 = new AleCrane* [n];
     machine->arr2 = new EbDevice* [n];
 
     machine->arr1[0] = ale_init( device1->base_width, device1->base_height, device1->base, device1->height, device1->sliding, device1->arm,device1->angle); 
-    machine->arr2[0] = eb_init(device2->length_shaft, device2->width_towtruck, device2->width_platform, device2->rotation, arm_sliding);
+    machine->arr2[0] = eb_init(device2->length_shaft, device2->width_towtruck, device2->width_platform, device2->rotation, device2->sliding);
 
     if(machine->arr1[0] == NULL || machine->arr2[0] == NULL){
         return NULL;
@@ -49,7 +48,7 @@ AleMachine* ale_machine_init(AleCrane* device1 ,EbDevice* device2, double arm_sl
     return machine;
 }
 
-bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double arm_sliding, double platform_sliding){
+bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double platform_sliding){
 
     if(device1->angle == 0){
         return false;
@@ -70,6 +69,17 @@ bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double 
     if(platform_sliding > device2->width_platform){
         return false;
     }
+
+}
+
+int ale_set_platform_sliding(AleMachine* machine, double new_platform_sliding){
+
+    if(ale_check_machine_constraints(machine->arr1[0], machine->arr2[0], new_platform_sliding) == false){
+        return 1;
+    }
+
+    machine->platform_sliding = new_platform_sliding;
+
 
 }
 

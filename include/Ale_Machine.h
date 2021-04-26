@@ -23,5 +23,7 @@ struct AleMachine{
 
 AleMachine* ale_machine_init(AleCrane* device1 ,EbDevice* devie2, double arm_sliding, double platform_sliding , int n);
 
+bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double arm_sliding, double platform_sliding);
+
 
 #endif
