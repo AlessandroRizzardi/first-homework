@@ -340,8 +340,8 @@ AleCrane* ale_parse(string svg){
 
     //getting base_width length
 
-    string search = "rect x = \"400\" y = \"800\" width = \"";
-    size_t found1 = svg.find(search) + search.size();
+    string search = " width = \"";
+    size_t found1 = svg.find(search,125) + search.size();
     size_t found2 = svg.find("\"", found1);
 
     string read_svg = svg.substr(found1, found2 - found1);

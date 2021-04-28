@@ -280,7 +280,7 @@ TEST_CASE("Function ale_set_angle should replace the old length with the new one
 
 TEST_CASE("ale_to_svg should create a string with the right svg code", "[crane]"){
 
-    string s = ale_load_from_file("crane3.svg");
+    string s = ale_load_from_file("/home/alessandro/first-homework/crane3.svg");
 
     AleCrane* device = ale_init(200,60,50,500,90,400,0);
 
@@ -313,9 +313,9 @@ TEST_CASE("ale_save_to_file should save in the right filea a given string", "[cr
 
     string s = "Hakunamatata";
 
-    ale_save_to_file(s, "PROVA.md");
+    ale_save_to_file(s, "/home/alessandro/first-homework/PROVA.md");
 
-    string r = ale_load_from_file("PROVA.md");
+    string r = ale_load_from_file("/home/alessandro/first-homework/PROVA.md");
 
     REQUIRE(r == s);
 
@@ -337,14 +337,14 @@ TEST_CASE("ale_load_form file should return a string with the cintents of yhe fi
 
 TEST_CASE("ale_parse should return a NULL pointer if the crane drawing in the svg file does not respect the constarints" ,"[crane]"){
 
-    string s = ale_load_from_file("crane2.svg");
+    string s = ale_load_from_file("/home/alessandro/first-homework/crane2.svg");
 
     REQUIRE(ale_parse(s) == NULL);
 }
 
 TEST_CASE("ale_parse should return a non NULL pointer if the crane drawing in the svg file respects constarints", "[crane]"){
     
-    string s = ale_load_from_file("crane.svg");
+    string s = ale_load_from_file("/home/alessandro/first-homework/crane.svg");
 
     REQUIRE(ale_parse(s) != NULL);
 
@@ -353,7 +353,7 @@ TEST_CASE("ale_parse should return a non NULL pointer if the crane drawing in th
 TEST_CASE("ale_parse should return a Crane structure with the read length","[crane]"){
 
 
-    string s = ale_load_from_file("crane.svg");
+    string s = ale_load_from_file("/home/alessandro/first-homework/crane.svg");
 
     AleCrane* device = ale_parse(s);
 
