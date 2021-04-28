@@ -65,7 +65,7 @@ TEST_CASE("ale_check_constraints should return false if arm > height","[crane]")
 
 // testing ale_init function
 
-TEST_CASE("ale_init should return a NULL pinter if constraints are not respected","[crane]"){
+TEST_CASE("ale_init should return a NULL pointer if constraints are not respected","[crane]"){
 
     REQUIRE( ale_init(200,-60,50,500,90,400,45) == NULL);
 }
@@ -291,6 +291,20 @@ TEST_CASE("ale_to_svg should create a string with the right svg code", "[crane]"
     REQUIRE(r == s);
 
 }
+
+TEST_CASE("ale_to_svg should write ERROR if the device pointer is NULL", "[crane]"){
+
+    AleCrane* device = ale_init(200,60,50,500,90,400,180);
+
+    bool with_measures = 0;
+
+    string r = ale_to_svg(device, 0);
+
+    REQUIRE(r == "ERROR");
+
+}
+
+
 
 //testing ale_save_to_file
 
