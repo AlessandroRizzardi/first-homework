@@ -298,7 +298,7 @@ int ale_set_angle(AleCrane* device, double new_angle){
 
 void ale_save_to_file(string text, string file_name){
 
-    ofstream ale_File("../../" + file_name);
+    ofstream ale_File( file_name);
  
     string string_to_write = text;
     
@@ -313,7 +313,7 @@ void ale_save_to_file(string text, string file_name){
 
 string ale_load_from_file( string file_name ){
 
-    ifstream t("../../" + file_name);
+    ifstream t(file_name);
     stringstream buffer;
     buffer << t.rdbuf();
     string text = buffer.str();
@@ -335,8 +335,8 @@ AleCrane* ale_parse(string svg){
 
     //getting base_width length
 
-    string search = " width =\"";
-    size_t found1 = svg.find(search,120) + search.size();
+    string search = " width = \"";
+    size_t found1 = svg.find(search,125) + search.size();
     size_t found2 = svg.find("\"", found1);
 
     string read_svg = svg.substr(found1, found2 - found1);
