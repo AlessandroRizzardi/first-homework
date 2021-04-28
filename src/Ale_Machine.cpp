@@ -45,6 +45,7 @@ AleMachine* ale_machine_init(AleCrane* device1 ,EbDevice* device2,  double platf
     double scale = h_ratio + 0.2 ;
 
     machine->ratio = scale;
+    machine->n = n;
 
     for(int i = 1; i < n; i++){
 
@@ -101,7 +102,7 @@ int ale_set_platform_sliding(AleMachine* machine, double new_platform_sliding){
 
 }
 
-string ale_machine_to_svg(AleMachine* machine, int n){
+string ale_machine_to_svg(AleMachine* machine){
 
 
     string text = "";
@@ -148,7 +149,7 @@ string ale_machine_to_svg(AleMachine* machine, int n){
     text +="<rect x = \"" + to_string(ax + machine->arr1[0]->base + eb_Xplatform(machine->arr2[0]) ) + "\" y = \"" + to_string(ay + machine->arr1[0]->base + 20 + machine->arr2[0]->length_shaft * cos(machine->arr2[0]->rotation * (M_PI/180)) - 20/2) + "\" width = \"" + to_string(machine->arr2[0]->width_platform )+ "\" height = \"20\"  stroke = \"black\" stroke-width = \"3\" fill = \"black\" />\n";
     text +="</g>\n\n";
     
-    for(int i = 1; i < n; i++){
+    for(int i = 1; i < machine->n; i++){
 
         
         
@@ -210,7 +211,8 @@ string ale_machine_to_svg(AleMachine* machine, int n){
 AleMachine* ale_machine_parse(string svg){
 
     AleCrane* device1 = ale_parse(svg);
-    EbDevice* device2 = eb_parse(find_string(svg, "<circle cx", "fill = \"black\""));
+    double difference = device1->sliding + device1->base +400;
+    EbDevice* device2 = eb_new_parse(find_string(svg, "<circle cx", "fill = \"black\""), difference);
 
     string first_platform = find_string(svg, "fill = \"white\"", "fill = \"black\"");
     string second_svg = find_string(svg, "fill = \"black\"", "fill = \"blue\"");
@@ -225,12 +227,12 @@ AleMachine* ale_machine_parse(string svg){
     
 
     string search2 = "rect x = \"";
-    size_t found3 = second_svg.find(search) + search.size();
+    size_t found3 = second_svg.find(search2) + search.size();
     size_t found4 = second_svg.find("\"", found3);
 
     string read_svg2 = second_svg.substr(found3, found4 - found3);
 
-    double newX1 = stod(read_svg);
+    double newX1 = stod(read_svg2);
 
     double read_platform_sliding = newX1 - Xplatform;
 
@@ -279,6 +281,147 @@ int find_istances(string &pat, string &txt){
     }
     return res;
 }
+
+bool ale_are_equal(AleMachine* machine1, AleMachine* machine2){
+
+    if(machine1->arr1[0]->base_width != machine2->arr1[0]->base_width){
+        return false;
+    }
+
+    if(machine1->arr1[0]->base_height != machine2->arr1[0]->base_height){
+        return false;
+    }
+
+
+    if(machine1->arr1[0]->base != machine2->arr1[0]->base){
+        return false;
+    }
+
+    if(machine1->arr1[0]->height != machine2->arr1[0]->height){
+        return false;
+    }
+
+    if(machine1->arr1[0]->sliding != machine2->arr1[0]->sliding){
+        return false;
+    }
+    
+
+    if(machine1->arr1[0]->arm != machine2->arr1[0]->arm){
+        return false;
+    }
+    
+
+    if(machine1->arr1[0]->angle != machine2->arr1[0]->angle){
+        return false;
+    }
+    
+
+    if(machine1->arr2[0]->length_shaft != machine2->arr2[0]->length_shaft){
+        return false;
+    }
+    
+
+    if(machine1->arr2[0]->width_platform != machine2->arr2[0]->width_platform){
+        return false;
+    }
+
+
+    if(machine1->arr2[0]->width_towtruck != machine2->arr2[0]->width_towtruck){
+        return false;
+    }
+    
+
+    if(machine1->arr2[0]->rotation != machine2->arr2[0]->rotation){
+        return false;
+    }
+    
+
+    if(machine1->arr2[0]->sliding != machine2->arr2[0]->sliding){
+        return false;
+    }
+
+    if( machine1->platform_sliding != machine2->platform_sliding ){
+        return false;
+    }
+
+    if(machine1->n != machine2->n){
+        return false;
+    }
+
+    return true;
+
+}
+
+void ale_destroy(AleMachine* machine){
+
+    for(int i = 0; i < machine->n; i++){
+        delete machine->arr1[i];
+        delete machine->arr2[i];
+    }
+
+    delete[] machine->arr1;
+    delete[] machine->arr2;
+}
+
+EbDevice* eb_new_parse(string svg, double difference ){
+    
+    double length_shaft;
+    double width_towtruck;
+    double width_platform;
+    double rotation;
+    double sliding;
+    
+    
+    //getting sliding
+    string search = "rect x = \"";
+    size_t find1 = svg.find(search) + search.size();
+    size_t find2= svg.find("\"", find1);
+    string element = svg.substr(find1, find2-find1);
+    sliding = stod(element) - difference;
+
+
+    //getting width_towtruck
+    search = " width = \"";
+    size_t find3 = svg.find(search,find1) + search.size();
+    size_t find4= svg.find("\"", find3);
+    element = svg.substr(find3, find4-find3);
+    width_towtruck = stod(element);
+
+    
+    //getting rotation
+    search = "g transform  = \"rotate(";
+    size_t find5 = svg.find(search,find3) + search.size();
+    size_t find6= svg.find(",", find5);
+    element = svg.substr(find5, find6-find5);
+    rotation = stod(element);
+    
+    //getting length_shaft
+    search = " height = \"";
+    size_t find7 = svg.find(search,find5) + search.size();
+    size_t find8= svg.find("\"", find7);
+    element = svg.substr(find7, find8-find7);
+    length_shaft = stod(element);
+
+    //getting width_platform
+    search = " width = \"";
+    size_t find9 = svg.find(search,find7) + search.size();
+    size_t find10= svg.find("\"", find9);
+    element = svg.substr(find9, find10-find9);
+    width_platform = stod(element);
+
+
+    EbDevice* device = new EbDevice;
+
+    if(eb_checkConstraints(length_shaft,width_towtruck,width_platform,rotation,sliding) == false){
+        return NULL;
+    }
+    
+    device=eb_init(length_shaft,width_towtruck,width_platform,rotation,sliding);
+    
+    return device;
+}
+
+
 
 
 

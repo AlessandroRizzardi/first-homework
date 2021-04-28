@@ -258,7 +258,7 @@ int main() {
     */
 
 
-        string svg = eb_read_from_file("newmachine.svg");
+        string svg = eb_read_from_file("/home/alessandro/first-homework/newmachine.svg");
         
         AleMachine* machine = ale_machine_parse(svg);
 
@@ -266,7 +266,9 @@ int main() {
 
         int n = find_istances(recurring, svg);
 
-        string s = ale_machine_to_svg(machine,n);
+        string s = ale_machine_to_svg(machine);
+
+        cout << s <<endl;
 
         eb_save_to_file(s, "newmachine2");
 

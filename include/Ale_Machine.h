@@ -15,6 +15,7 @@
 struct AleMachine{
     
     double ratio;
+    int n;
     double platform_sliding;
 
     AleCrane** arr1;
@@ -27,13 +28,19 @@ bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2,  double
 
 int ale_set_platform_sliding(AleMachine* machine, double new_platform_sliding);
 
-string ale_machine_to_svg(AleMachine* machine, int n);
+string ale_machine_to_svg(AleMachine* machine);
 
 AleMachine* ale_machine_parse(string svg);
 
 string find_string(string svg, string start, string end);
 
 int find_istances(string &pat, string &txt);
+
+bool ale_are_equal(AleMachine* machine1, AleMachine* machine2);
+
+void ale_destroy(AleMachine* machine);
+
+EbDevice* eb_new_parse(string svg, double difference );
 
 
 #endif
