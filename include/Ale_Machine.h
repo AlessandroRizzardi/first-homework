@@ -29,5 +29,11 @@ int ale_set_platform_sliding(AleMachine* machine, double new_platform_sliding);
 
 string ale_machine_to_svg(AleMachine* machine, int n);
 
+AleMachine* ale_machine_parse(string svg);
+
+string find_string(string svg, string start, string end);
+
+int find_istances(string &pat, string &txt);
+
 
 #endif

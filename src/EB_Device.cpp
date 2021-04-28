@@ -368,7 +368,7 @@ EbDevice* eb_parse(string svg){
 
 
     //getting width_towtruck
-    search = "y = \"100\" width = \"";
+    search = " width = \"";
     size_t find3 = svg.find(search,find1) + search.size();
     size_t find4= svg.find("\"", find3);
     element = svg.substr(find3, find4-find3);
@@ -383,7 +383,7 @@ EbDevice* eb_parse(string svg){
     rotation = stod(element);
     
     //getting length_shaft
-    search = "y = \"120\" width = \"20\" height = \"";
+    search = " height = \"";
     size_t find7 = svg.find(search,find5) + search.size();
     size_t find8= svg.find("\"", find7);
     element = svg.substr(find7, find8-find7);

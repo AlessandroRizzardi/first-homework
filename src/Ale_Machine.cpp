@@ -129,8 +129,10 @@ string ale_machine_to_svg(AleMachine* machine, int n){
     double bx = ax + (machine->arr1[0]->base)*0.5 - 0.25 * (machine->arr1[0]->arm);
     double by = ay;
 
-    text += "<rect x = \"" + to_string(bx) + "\" y = \"" + to_string(by) + "\" width = \"" + to_string(machine->arr1[0]->arm) + "\" height = \"" + to_string(machine->arr1[0]->base) + "\" stroke = \"black\" stroke-width = \"3\" fill = \"green\" transform  = \"rotate(" + to_string(machine->arr1[0]->angle) + "," + to_string(ax + 0.5 * (machine->arr1[0]->base)) + "," + to_string(ay + 0.5 * (machine->arr1[0]->base) ) + ")\"/>\n";
-     
+    text += "<g transform  = \"rotate(" + to_string(machine->arr1[0]->angle) + "," + to_string(ax + 0.5 * (machine->arr1[0]->base)) + "," + to_string(ay + 0.5 * (machine->arr1[0]->base) ) + ")\">\n";
+    text += "<rect x = \"" + to_string(bx) + "\" y = \"" + to_string(by) + "\" width = \"" + to_string(machine->arr1[0]->arm) + "\" height = \"" + to_string(machine->arr1[0]->base) + "\" stroke = \"black\" stroke-width = \"3\" fill = \"green\" />\n"; 
+    text += "</g>\n";
+
     text += "<circle cx = \"" + to_string(ax + 0.5 * (machine->arr1[0]->base) ) + "\" cy = \"" + to_string(ay + 0.5 * (machine->arr1[0]->base) ) + "\" r = \"" + to_string(0.5 * (machine->arr1[0]->base) ) + "\" stroke = \"black\" stroke-width = \"3\" fill = \"grey\"/>\n";
         
     text += "<g>\n";
@@ -204,5 +206,79 @@ string ale_machine_to_svg(AleMachine* machine, int n){
     return text;
  
 }
+
+AleMachine* ale_machine_parse(string svg){
+
+    AleCrane* device1 = ale_parse(svg);
+    EbDevice* device2 = eb_parse(find_string(svg, "<circle cx", "fill = \"black\""));
+
+    string first_platform = find_string(svg, "fill = \"white\"", "fill = \"black\"");
+    string second_svg = find_string(svg, "fill = \"black\"", "fill = \"blue\"");
+
+    string search = "rect x = \"";
+    size_t found1 = first_platform.find(search) + search.size();
+    size_t found2 = first_platform.find("\"", found1);
+
+    string read_svg = first_platform.substr(found1, found2 - found1);
+
+    double Xplatform = stod(read_svg);
+    
+
+    string search2 = "rect x = \"";
+    size_t found3 = second_svg.find(search) + search.size();
+    size_t found4 = second_svg.find("\"", found3);
+
+    string read_svg2 = second_svg.substr(found3, found4 - found3);
+
+    double newX1 = stod(read_svg);
+
+    double read_platform_sliding = newX1 - Xplatform;
+
+    string recurring = "fill = \"blue\"";
+
+    int instances = find_istances(recurring, svg);
+
+    AleMachine* machine = ale_machine_init(device1, device2 , read_platform_sliding, instances);
+
+    return machine;
+
+
+}
+
+string find_string(string svg, string start, string end){
+
+    string search = start;
+    size_t found1 = svg.find(search);
+    size_t found2 = svg.find(end, found1);
+
+    string read_svg = svg.substr(found1, found2 - found1);
+
+    return read_svg;
+}
+
+
+int find_istances(string &pat, string &txt){
+    int M = pat.length();
+    int N = txt.length();
+    int res = 0;
+   
+    /* A loop to slide pat[] one by one */
+    for (int i = 0; i <= N - M; i++){
+        /* For current index i, check for
+           pattern match */
+        int j;
+        for (j = 0; j < M; j++)
+            if (txt[i+j] != pat[j])
+                break;
+  
+        // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
+        if (j == M) {
+           res++;
+           j = 0;
+        }
+    }
+    return res;
+}
+
 
 
