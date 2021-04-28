@@ -1,4 +1,6 @@
-#include "crane.h"
+#include "include/crane.h"
+#include "include/EB_Device.h"
+#include "include/Ale_Machine.h"
 
 #include <iostream>
 #include <string>
@@ -11,7 +13,7 @@ using namespace std;
 string error_message = "ERROR: constraints not respected!";
 
 int main() {
-    
+    /*
     double base_width;
     double base_height;
     double base;
@@ -247,7 +249,26 @@ int main() {
     cout << "angle: " << device->angle << endl;
 
     delete device;
+    */
 
+    AleCrane* device1 = ale_init(200,60,50,600,90,500,0);
+    EbDevice* device2 = eb_init(300,100,200,-20,50);
+    int n =5;
+    AleMachine* machine = ale_machine_init(device1,device2,100,n);
+    cout << "tutt ok" << endl;
+
+    for(int i = 0; i <n; i++){
+
+            cout <<"arr1[" << i << "]: " << machine->arr1[i]->height<<endl;
+          
+    }
+
+    cout << eb_Xplatform(machine->arr2[1]) << endl;
+   
+
+    string s = ale_machine_to_svg(machine,n);
+
+    eb_save_to_file(s, "newmachine");
 
 
    

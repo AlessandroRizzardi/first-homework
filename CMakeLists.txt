@@ -10,7 +10,9 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(mainEntry main.cpp)
 target_include_directories(mainEntry PRIVATE include)
 # Class A is not a library: its source file needs to be included in the target sources
-target_sources(mainEntry PRIVATE src/crane.cpp)
+target_sources(mainEntry PRIVATE src/crane.cpp
+                                 src/EB_Device.cpp
+                                 src/Ale_Machine.cpp )     
 target_link_libraries(mainEntry)
 
 # TESTS SECTION

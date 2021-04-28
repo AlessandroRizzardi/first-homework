@@ -14,6 +14,8 @@ target_include_directories(catch2Test PRIVATE
 # Including sources
 target_sources(catch2Test PRIVATE
         ../src/crane.cpp
+        ../src/EB_Device.cpp
+        ../src/Ale_Machine.cpp
         )
 
 #target_compile_options(catch2Test PRIVATE -Wa,-mbig-obj) # Solves assembler error of file too big

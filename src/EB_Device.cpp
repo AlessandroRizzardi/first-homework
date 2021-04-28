@@ -56,19 +56,24 @@ bool eb_checkConstraints(double length_shaft, double width_towtruck, double widt
     if(length_shaft < 0 || width_towtruck < 0 || width_platform < 0 || sliding < 0){
         return false;
     }
+    /*
     if(length_shaft<((std_platformHeight/2)+(std_towtruckHeight/2))){   
         return false;
     }
+    */
     if(rotation > 80 || rotation < -80){      //angoli max = +- 80 --> limite "fisico" max
         return false;
     }
+    /*
     if(width_towtruck < std_shaftWidth){
         return false;
     }
-
+    */
+   /*
     if(width_platform < std_shaftWidth){
         return false;
     }
+    */
     return true;
 } 
 
@@ -77,15 +82,19 @@ bool eb_checkConstraints(double length_shaft, double width_towtruck, double widt
 **/
 bool eb_drawConstraints(EbDevice* eb_device){
 
-    if(eb_Yplatform(eb_device) > 980){   //vincolo in altezza
+    if(eb_Yplatform(eb_device) > 980){ 
+        cout << "a";  //vincolo in altezza
         return false;
     }
     if((eb_Xcir(eb_device) + (eb_device->width_towtruck/2)) > 1500 || (eb_Xplatform(eb_device)+(eb_device->width_platform/2)) > 1500){ //vincolo in larghezza(a dx)
+        cout << "b"; 
         return false;
     }
-    if((eb_Xplatform(eb_device) - ((eb_device->width_platform)/2)) < 0){ //vincolo in larghezza(a sx)
+   /* if((eb_Xplatform(eb_device) - ((eb_device->width_platform)/2)) < 0){ //vincolo in larghezza(a sx)
+        cout << "c"; 
         return false;
-    }      
+    }  
+    */    
 
     return true;
 }
