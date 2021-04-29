@@ -1,0 +1,6 @@
+/home/alessandro/first-homework/build/CMakeFiles/rebuild_cache.dir
+/home/alessandro/first-homework/build/CMakeFiles/mainEntry.dir
+/home/alessandro/first-homework/build/CMakeFiles/edit_cache.dir
+/home/alessandro/first-homework/build/tests/CMakeFiles/rebuild_cache.dir
+/home/alessandro/first-homework/build/tests/CMakeFiles/catch2Test.dir
+/home/alessandro/first-homework/build/tests/CMakeFiles/edit_cache.dir

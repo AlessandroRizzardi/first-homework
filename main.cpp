@@ -1,6 +1,8 @@
-#include "include/crane.h"
-#include "include/EB_Device.h"
-#include "include/Ale_Machine.h"
+
+#include "crane.h"
+#include "EB_Device.h"
+#include "alemachine.h"
+
 
 #include <iostream>
 #include <string>
@@ -13,7 +15,8 @@ using namespace std;
 string error_message = "ERROR: constraints not respected!";
 
 int main() {
-    /*
+
+
     double base_width;
     double base_height;
     double base;
@@ -22,7 +25,7 @@ int main() {
     double arm;
     double angle;
 
-    cout<< "Device creation, please insert the lengths:" << endl;
+    cout<< "Crane creation, please insert the lengths:" << endl;
 
     cout << "Base width: ";
     cin >> base_width;
@@ -65,9 +68,14 @@ int main() {
     cin >> with_meausures;
     cout << endl;
 
+    string file1;
+    cout << "Please enetr the file name you want to save the file in: ";
+    cin >> file1;
+    cout << endl;
+
     string svg_code = ale_to_svg(device,with_meausures);
 
-    ale_save_to_file(svg_code,"newcrane.svg");
+    ale_save_to_file(svg_code,file1);
 
     cout << "Svg file has been created" << endl;
 
@@ -106,7 +114,7 @@ int main() {
 
             string svg_code = ale_to_svg(device,with_meausures);
 
-            ale_save_to_file(svg_code, "newcrane.svg");
+            ale_save_to_file(svg_code, file1);
 
         }
 
@@ -127,7 +135,7 @@ int main() {
 
             string svg_code = ale_to_svg(device,with_meausures);
 
-            ale_save_to_file(svg_code, "newcrane.svg");
+            ale_save_to_file(svg_code, file1);
 
         }
 
@@ -148,7 +156,7 @@ int main() {
 
             string svg_code = ale_to_svg(device,with_meausures);
 
-            ale_save_to_file(svg_code, "newcrane.svg");
+            ale_save_to_file(svg_code, file1);
 
         }
 
@@ -169,7 +177,7 @@ int main() {
 
             string svg_code = ale_to_svg(device,with_meausures);
 
-            ale_save_to_file(svg_code, "newcrane.svg");
+            ale_save_to_file(svg_code, file1);
 
         }
 
@@ -190,7 +198,7 @@ int main() {
 
             string svg_code = ale_to_svg(device,with_meausures);
 
-            ale_save_to_file(svg_code, "newcrane.svg");
+            ale_save_to_file(svg_code, file1);
 
         }
 
@@ -211,7 +219,7 @@ int main() {
 
             string svg_code = ale_to_svg(device,with_meausures);
 
-            ale_save_to_file(svg_code, "newcrane.svg");
+            ale_save_to_file(svg_code, file1);
 
         }
 
@@ -232,7 +240,7 @@ int main() {
 
             string svg_code = ale_to_svg(device,with_meausures);
 
-            ale_save_to_file(svg_code, "newcrane.svg");
+            ale_save_to_file(svg_code, file1);
 
         }
         
@@ -248,35 +256,116 @@ int main() {
     cout << "arm: " << device->arm << endl;
     cout << "angle: " << device->angle << endl;
 
-    delete device;
-    */
-   /*
-    AleCrane* device1 = ale_init(200,60,50,600,90,500,0);
-    EbDevice* device2 = eb_init(300,100,200,-20,50);
-    int n =5;
-    AleMachine* machine = ale_machine_init(device1,device2,100,n);
-    */
+
+    cout << "You can now create a machine made of a crane and a carrello-gru, please insert carrello gru lengths: " << endl;
+
+    double lenght_shaft;
+    double width_towtruck;
+    double width_platform;
+    double rotation;
+    double sliding2;
+
+    cout << "insert lenght_shaft: ";
+    cin >> lenght_shaft;
+    cout << endl;
+
+    cout << "insert width_towtruck: ";
+    cin >> width_towtruck;
+    cout << endl;
+
+    cout << "insert width_platform: ";
+    cin >> width_platform;
+    cout << endl;
+
+    cout << "insert rotation: ";
+    cin >> rotation;
+    cout << endl;
+
+    cout << "sliding of carrello: ";
+    cin >> sliding2;
+    cout << endl;
+
+    EbDevice* device2 = eb_init(lenght_shaft,width_towtruck,width_platform,rotation,sliding);
+
+    if(device == NULL){
+        cout << error_message << endl;
+        exit(1);
+    }
+
+    int istances;
+    cout << "how many istances of the machine you want? " ;
+    cin >> istances;
+    cout << endl;
+
+    double platform_sliding;
+    cout << "You can choice the sliding of the platform on the crane's arm: ";
+    cin >> platform_sliding;
+    cout << endl;
 
 
-        string svg = eb_read_from_file("/home/alessandro/first-homework/newmachine.svg");
-        
-        AleMachine* machine = ale_machine_parse(svg);
+    AleMachine* machine = ale_machine_init(device, device2,platform_sliding,istances );
 
-        string recurring = "fill = \"blue\"";
+    if(machine == NULL){
+        cout << error_message << endl;
+        exit(1);
+    }
 
-        int n = find_istances(recurring, svg);
+    string file2;
+    cout << "Please insert the file name you want to save machine in: ";
+    cin >> file2;
+    cout << endl;
 
-        string s = ale_machine_to_svg(machine);
+    string svg_machine = ale_machine_to_svg(machine);
 
-        cout << s <<endl;
+    eb_save_to_file(svg_machine, file2);
 
-        eb_save_to_file(s, "newmachine2");
+    cout << "Machine svg file has been created!" << endl;
+
+    char choice2;
+    cout <<"Do you want to see if two machine you save are the same?" << endl;
+    cout << "Press y if you want , any other differnt keys if you don't" <<endl;
+    cin >> choice2;
+
+    if(choice2 == 'y'){
+
+        string read1;
+        string read2;
+
+        cout << "First machine file name: ";
+        cin >> read1;
+        cout << endl;
+
+        cout << "Second machine file name: ";
+        cin >> read2;
+        cout << endl;
+
+        string w = eb_read_from_file(read1);
+        string v = eb_read_from_file(read2);
+
+        AleMachine* machine2 = ale_machine_parse(w);
+        AleMachine* machine3 = ale_machine_parse(v);
+
+        if(ale_are_equal(machine2,machine3) == true){
+
+            cout << "The machines are equal!!" << endl;
+
+        } 
+
+        cout << "The machines are NOT equal" << endl;
+
+        ale_destroy(machine2);
+        ale_destroy(machine3);
+    }
 
 
-        
+    cout << "END" << endl;
 
-        
 
+
+    ale_destroy(machine);
     
-        cout << "tutt ok" << endl;
+    delete device;
+    delete device2;
+
+ 
 }

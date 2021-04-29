@@ -87,6 +87,11 @@ string ale_to_svg(AleCrane* device, bool with_measures){
 
     string text = "";
 
+    if(device == NULL){
+        text+= "ERROR";
+        return text;
+    }
+
     if(with_measures == true){
 
         text += "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n\n";
@@ -312,6 +317,7 @@ void ale_save_to_file(string text, string file_name){
 
 
 string ale_load_from_file( string file_name ){
+
 
     ifstream t(file_name);
     stringstream buffer;

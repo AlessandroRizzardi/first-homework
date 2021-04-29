@@ -1,0 +1,1 @@
+/usr/bin/x86_64-linux-gnu-g++-7  -g   CMakeFiles/catch2Test.dir/catch2Main.cpp.o CMakeFiles/catch2Test.dir/testcrane.cpp.o CMakeFiles/catch2Test.dir/testmachine.cpp.o CMakeFiles/catch2Test.dir/__/src/crane.cpp.o CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o  -o catch2Test 

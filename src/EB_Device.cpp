@@ -13,13 +13,15 @@ using namespace std;
 /*
     some components' features are fixed --> shaft width, towtruck height, platform height 
 */
-    const double std_shaftWidth = 20;
-    const double std_towtruckHeight = 40;
-    const double std_platformHeight = 20;
 
-    const double std_Ycir=120;
-    const double std_radius=10;
-    const double std_YtowTruck=100;
+
+     double std_shaftWidth = 20;
+     double std_towtruckHeight = 40;
+     double std_platformHeight = 20;
+
+     double std_Ycir=120;
+     double std_radius=10;
+
 /*
     centro di istantanea rotazione --> punto attorno al quale l'asta ruota, corrisponde al
     centro della coppia rotoidale che unisce asta e carrello --> Ycir è fissa, Xcir varia in
