@@ -11,7 +11,7 @@ Esempio device
 ### PARAMETRI
 
 * _base-width_ : largezza della base di appoggio della gru;
-* _base_height : altezza della base di appoggio della gru;
+* _base-height : altezza della base di appoggio della gru;
 * _base_ : largezza della base della gru;
 * _height_ : altezza della gru;
 * _arm_ : lunghezza del braccio della gru;
@@ -30,7 +30,7 @@ Esempio device
 
 ## SECONDA PARTE
 
-Nella seconda parte si è integrato il meccanismo gu con un altro "device". Il device che ho scelto come suuporto è il carrello-gru di [Elia Bontempelli](). ù
+Nella seconda parte si è integrato il meccanismo gu con un altro "device". Il device che ho scelto come suuporto è il carrello-gru di [Elia Bontempelli]().
 
 Esempio machine
 ![](provamachine0.svg)
