@@ -31,6 +31,11 @@
 },
 {
   "directory": "/home/alessandro/first-homework/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/alessandro/first-homework/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/testmachine.cpp.o -c /home/alessandro/first-homework/tests/testmachine.cpp",
+  "file": "/home/alessandro/first-homework/tests/testmachine.cpp"
+},
+{
+  "directory": "/home/alessandro/first-homework/build/tests",
   "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/alessandro/first-homework/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/__/src/crane.cpp.o -c /home/alessandro/first-homework/src/crane.cpp",
   "file": "/home/alessandro/first-homework/src/crane.cpp"
 },

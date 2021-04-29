@@ -2,6 +2,7 @@
 add_executable(catch2Test catch2Main.cpp) # Just this one contains BOOST_TEST_MAIN
 target_sources(catch2Test PRIVATE
         testcrane.cpp
+        testmachine.cpp
         )
 
 # Libraries used in the tests

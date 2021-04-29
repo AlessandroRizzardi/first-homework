@@ -260,6 +260,33 @@ testcrane.cpp.s:
 	cd /home/alessandro/first-homework/build && $(MAKE) -f tests/CMakeFiles/catch2Test.dir/build.make tests/CMakeFiles/catch2Test.dir/testcrane.cpp.s
 .PHONY : testcrane.cpp.s
 
+testmachine.o: testmachine.cpp.o
+
+.PHONY : testmachine.o
+
+# target to build an object file
+testmachine.cpp.o:
+	cd /home/alessandro/first-homework/build && $(MAKE) -f tests/CMakeFiles/catch2Test.dir/build.make tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o
+.PHONY : testmachine.cpp.o
+
+testmachine.i: testmachine.cpp.i
+
+.PHONY : testmachine.i
+
+# target to preprocess a source file
+testmachine.cpp.i:
+	cd /home/alessandro/first-homework/build && $(MAKE) -f tests/CMakeFiles/catch2Test.dir/build.make tests/CMakeFiles/catch2Test.dir/testmachine.cpp.i
+.PHONY : testmachine.cpp.i
+
+testmachine.s: testmachine.cpp.s
+
+.PHONY : testmachine.s
+
+# target to generate assembly for a file
+testmachine.cpp.s:
+	cd /home/alessandro/first-homework/build && $(MAKE) -f tests/CMakeFiles/catch2Test.dir/build.make tests/CMakeFiles/catch2Test.dir/testmachine.cpp.s
+.PHONY : testmachine.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -284,6 +311,9 @@ help:
 	@echo "... testcrane.o"
 	@echo "... testcrane.i"
 	@echo "... testcrane.s"
+	@echo "... testmachine.o"
+	@echo "... testmachine.i"
+	@echo "... testmachine.s"
 .PHONY : help
 
 

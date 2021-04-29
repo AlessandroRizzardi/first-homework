@@ -105,9 +105,33 @@ tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o.provides: tests/CMakeFiles/catch
 tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o.provides.build: tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o
 
 
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o: tests/CMakeFiles/catch2Test.dir/flags.make
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o: ../tests/testmachine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o"
+	cd /home/alessandro/first-homework/build/tests && /usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/catch2Test.dir/testmachine.cpp.o -c /home/alessandro/first-homework/tests/testmachine.cpp
+
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/catch2Test.dir/testmachine.cpp.i"
+	cd /home/alessandro/first-homework/build/tests && /usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alessandro/first-homework/tests/testmachine.cpp > CMakeFiles/catch2Test.dir/testmachine.cpp.i
+
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/catch2Test.dir/testmachine.cpp.s"
+	cd /home/alessandro/first-homework/build/tests && /usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alessandro/first-homework/tests/testmachine.cpp -o CMakeFiles/catch2Test.dir/testmachine.cpp.s
+
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.requires:
+
+.PHONY : tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.requires
+
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.provides: tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.requires
+	$(MAKE) -f tests/CMakeFiles/catch2Test.dir/build.make tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.provides.build
+.PHONY : tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.provides
+
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.provides.build: tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o
+
+
 tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o: tests/CMakeFiles/catch2Test.dir/flags.make
 tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o: ../src/crane.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o"
 	cd /home/alessandro/first-homework/build/tests && /usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/catch2Test.dir/__/src/crane.cpp.o -c /home/alessandro/first-homework/src/crane.cpp
 
 tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.i: cmake_force
@@ -131,7 +155,7 @@ tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o.provides.build: tests/CMakeFi
 
 tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o: tests/CMakeFiles/catch2Test.dir/flags.make
 tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o: ../src/alemachine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o"
 	cd /home/alessandro/first-homework/build/tests && /usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o -c /home/alessandro/first-homework/src/alemachine.cpp
 
 tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.i: cmake_force
@@ -155,7 +179,7 @@ tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o.provides.build: tests/CM
 
 tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o: tests/CMakeFiles/catch2Test.dir/flags.make
 tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o: ../src/EB_Device.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o"
 	cd /home/alessandro/first-homework/build/tests && /usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o -c /home/alessandro/first-homework/src/EB_Device.cpp
 
 tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.i: cmake_force
@@ -181,6 +205,7 @@ tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o.provides.build: tests/CMa
 catch2Test_OBJECTS = \
 "CMakeFiles/catch2Test.dir/catch2Main.cpp.o" \
 "CMakeFiles/catch2Test.dir/testcrane.cpp.o" \
+"CMakeFiles/catch2Test.dir/testmachine.cpp.o" \
 "CMakeFiles/catch2Test.dir/__/src/crane.cpp.o" \
 "CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o" \
 "CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o"
@@ -190,12 +215,13 @@ catch2Test_EXTERNAL_OBJECTS =
 
 tests/catch2Test: tests/CMakeFiles/catch2Test.dir/catch2Main.cpp.o
 tests/catch2Test: tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o
+tests/catch2Test: tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o
 tests/catch2Test: tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o
 tests/catch2Test: tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o
 tests/catch2Test: tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o
 tests/catch2Test: tests/CMakeFiles/catch2Test.dir/build.make
 tests/catch2Test: tests/CMakeFiles/catch2Test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable catch2Test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alessandro/first-homework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable catch2Test"
 	cd /home/alessandro/first-homework/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/catch2Test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -205,6 +231,7 @@ tests/CMakeFiles/catch2Test.dir/build: tests/catch2Test
 
 tests/CMakeFiles/catch2Test.dir/requires: tests/CMakeFiles/catch2Test.dir/catch2Main.cpp.o.requires
 tests/CMakeFiles/catch2Test.dir/requires: tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o.requires
+tests/CMakeFiles/catch2Test.dir/requires: tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o.requires
 tests/CMakeFiles/catch2Test.dir/requires: tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o.requires
 tests/CMakeFiles/catch2Test.dir/requires: tests/CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o.requires
 tests/CMakeFiles/catch2Test.dir/requires: tests/CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o.requires

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"  width = "3000" height = "900">
+
+<rect x = "400.000000" y = "800.000000" width = "200.000000" height = "60.000000"  stroke = "black" stroke-width = "3" fill = "blue" />
+<rect x = "490.000000" y = "200.000000" width = "50.000000" height = "600.000000" stroke = "black" stroke-width = "3" fill = "red" />
+<g transform  = "rotate(0.000000,515.000000,225.000000)">
+<rect x = "390.000000" y = "200.000000" width = "500.000000" height = "50.000000" stroke = "black" stroke-width = "3" fill = "green" />
+</g>
+<circle cx = "515.000000" cy = "225.000000" r = "25.000000" stroke = "black" stroke-width = "3" fill = "grey"/>
+<g>
+<rect x = "590.000000" y = "250.000000" width = "100.000000" height = "40" stroke = "black" stroke-width = "3" fill = "yellow"/>
+</g>
+
+<g transform  = "rotate(0.000000,640.000000,270.000000)">
+<rect x = "630.000000" y = "270.000000" width = "20" height = "300.000000" stroke = "black" stroke-width = "3" fill = "orange" />
+<circle cx = "640.000000" cy = "270.000000" r = "10" stroke = "black" stroke-width = "3" fill = "white"/>
+</g>
+
+<g>
+<rect x = "540.000000" y = "560.000000" width = "200.000000" height = "20"  stroke = "black" stroke-width = "3" fill = "black" />
+</g>
+
+<rect x = "1040.000000" y = "537.310924" width ="75.630252" height = "22.689076"  stroke = "black" stroke-width = "1.134454" fill = "blue" />
+<rect x = "674.033613" y = "310.420168" width = "18.907563" height = "226.890756" stroke = "black" stroke-width = "1.134454" fill = "red" />
+<rect x = "636.218487" y = "310.420168" width = "189.075630" height = "18.907563" stroke = "black" stroke-width = "1.134454" fill = "green" transform  = "rotate(0.000000,683.487395,319.873950)"/>
+<circle cx = "683.487395" cy = "319.873950" r = "9.453782" stroke = "black" stroke-width = "1.134454" fill = "grey"/>
+<g>
+<rect x = "711.848739" y = "329.327731" width = "37.815126" height = "15.126050" stroke = "black" stroke-width = "1.134454" fill = "yellow"/>
+</g>
+
+<g transform  = "rotate(0.000000,730.756303,329.327731)">
+<rect x = "726.974790" y = "336.890756" width = "7.563025" height = "113.445378" stroke = "black" stroke-width = "1.134454" fill = "orange" />
+<circle cx = "730.756303" cy = "336.890756" r = "3.781513" stroke = "black" stroke-width = "1.134454" fill = "white"/>
+</g>
+
+<g>
+<rect x = "692.941176" y = "446.554622" width = "75.630252" height = "7.563025"  stroke = "black" stroke-width = "1.134454" fill = "black" />
+</g>
+
+<rect x = "707.241014" y = "442.773109" width ="14.299838" height = "4.289951"  stroke = "black" stroke-width = "0.567227" fill = "blue" />
+<rect x = "713.675941" y = "399.873596" width = "3.574959" height = "42.899513" stroke = "black" stroke-width = "0.567227" fill = "red" />
+<rect x = "706.526022" y = "399.873596" width = "35.749594" height = "3.574959" stroke = "black" stroke-width = "0.567227" fill = "green" transform  = "rotate(0.000000,715.463421,401.661076)"/>
+<circle cx = "715.463421" cy = "401.661076" r = "1.787480" stroke = "black" stroke-width = "0.567227" fill = "grey"/>
+<g>
+<rect x = "720.825860" y = "403.448556" width = "7.149919" height = "2.859968" stroke = "black" stroke-width = "0.567227" fill = "yellow"/>
+</g>
+
+<g transform  = "rotate(0.000000,724.400819,403.448556)">
+<rect x = "723.685827" y = "404.878540" width = "1.429984" height = "21.449756" stroke = "black" stroke-width = "0.567227" fill = "orange" />
+<circle cx = "724.400819" cy = "404.878540" r = "0.714992" stroke = "black" stroke-width = "0.567227" fill = "white"/>
+</g>
+
+<g>
+<rect x = "717.250900" y = "425.613304" width = "14.299838" height = "1.429984"  stroke = "black" stroke-width = "0.567227" fill = "black" />
+</g>
+
+</svg>

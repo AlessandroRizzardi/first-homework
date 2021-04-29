@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/catch2Test.dir/catch2Main.cpp.o"
   "CMakeFiles/catch2Test.dir/testcrane.cpp.o"
+  "CMakeFiles/catch2Test.dir/testmachine.cpp.o"
   "CMakeFiles/catch2Test.dir/__/src/crane.cpp.o"
   "CMakeFiles/catch2Test.dir/__/src/alemachine.cpp.o"
   "CMakeFiles/catch2Test.dir/__/src/EB_Device.cpp.o"

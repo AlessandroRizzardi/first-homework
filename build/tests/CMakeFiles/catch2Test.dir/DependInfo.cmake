@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/alessandro/first-homework/src/crane.cpp" "/home/alessandro/first-homework/build/tests/CMakeFiles/catch2Test.dir/__/src/crane.cpp.o"
   "/home/alessandro/first-homework/tests/catch2Main.cpp" "/home/alessandro/first-homework/build/tests/CMakeFiles/catch2Test.dir/catch2Main.cpp.o"
   "/home/alessandro/first-homework/tests/testcrane.cpp" "/home/alessandro/first-homework/build/tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o"
+  "/home/alessandro/first-homework/tests/testmachine.cpp" "/home/alessandro/first-homework/build/tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

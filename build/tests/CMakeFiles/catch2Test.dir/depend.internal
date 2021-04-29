@@ -19,3 +19,9 @@ tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o
  ../tests/../include/catch2/catch2.hpp
  ../tests/../include/crane.h
  /home/alessandro/first-homework/tests/testcrane.cpp
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o
+ /home/alessandro/first-homework/include/EB_Device.h
+ /home/alessandro/first-homework/include/alemachine.h
+ /home/alessandro/first-homework/include/catch2/catch2.hpp
+ /home/alessandro/first-homework/include/crane.h
+ /home/alessandro/first-homework/tests/testmachine.cpp

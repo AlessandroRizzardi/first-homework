@@ -19,3 +19,9 @@ tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o: ../tests/../include/catch2/catc
 tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o: ../tests/../include/crane.h
 tests/CMakeFiles/catch2Test.dir/testcrane.cpp.o: ../tests/testcrane.cpp
 
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o: ../include/EB_Device.h
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o: ../include/alemachine.h
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o: ../include/catch2/catch2.hpp
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o: ../include/crane.h
+tests/CMakeFiles/catch2Test.dir/testmachine.cpp.o: ../tests/testmachine.cpp
+

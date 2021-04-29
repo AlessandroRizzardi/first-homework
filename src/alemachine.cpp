@@ -72,6 +72,9 @@ bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double 
         return false;
     }
     
+    if(platform_sliding > device2->width_platform){
+        return false;
+    }
     
     if(eb_drawConstraints(device2) == false){
         
@@ -89,6 +92,11 @@ bool ale_check_machine_constraints(AleCrane* device1 ,EbDevice* device2, double 
 }
 
 int ale_set_platform_sliding(AleMachine* machine, double new_platform_sliding){
+   
+    if(machine == NULL){
+        return 1;
+    }
+    
 
     if(ale_check_machine_constraints(machine->arr1[0], machine->arr2[0], new_platform_sliding) == false){
         return 1;
@@ -116,7 +124,7 @@ string ale_machine_to_svg(AleMachine* machine){
     double Y1 = 800;
 
     
-    text += "<rect x = \"" + to_string(X1) +"\" y = \"" + to_string(Y1) + "\" width =\"" + to_string(machine->arr1[0]->base_width) + "\" height = \"" + to_string(machine->arr1[0]->base_height) + "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />\n";
+    text += "<rect x = \"" + to_string(X1) +"\" y = \"" + to_string(Y1) + "\" width = \"" + to_string(machine->arr1[0]->base_width) + "\" height = \"" + to_string(machine->arr1[0]->base_height) + "\"  stroke = \"black\" stroke-width = \"3\" fill = \"blue\" />\n";
 
 
     double ax = X1 + machine->arr1[0]->sliding;
