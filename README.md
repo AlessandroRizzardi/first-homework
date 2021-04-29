@@ -11,7 +11,7 @@ Esempio device
 ### PARAMETRI
 
 * _base-width_ : largezza della base di appoggio della gru;
-* _base-height : altezza della base di appoggio della gru;
+* _base-height_ : altezza della base di appoggio della gru;
 * _base_ : largezza della base della gru;
 * _height_ : altezza della gru;
 * _arm_ : lunghezza del braccio della gru;
