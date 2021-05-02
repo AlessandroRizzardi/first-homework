@@ -48,8 +48,27 @@ Il meccanismo presenta un solo parametro dato dalla posizione che si vuole dare 
 * Il carrello può muoversi lungo il braccio della gru ma non può uscire da questo;
 * Limiti legati alla necessità di rimanere nel disegno.
 
+##NOTE UTILI
+* I test del secondo device sono stati tolti dal  file CMakeLists poichè alcune alcune limitazioni sono state commentate per ottenere la machine e quindi se si vuole testare vanno commentati o tolti i relativi test. Prima di utilizzare il device si è opportunamente controllato che i test passassero.
+*  Grandezze indicative per ottenere i device sono:
+CRANE:
+  _base-width_: 200
+  _base-height_: 60
+  _base_: 50
+  _height_:500
+  _arm_ :400
+  _angle_: 45 (mettere 0 se poi si vuole costruire una machine)
+CARELLO-GRU:
+ _length-shaft_:300
+ _width-towtruck_:100
+ _width_platform_: 200
+ _rotation_: tra -80 e 0
+ _sliding_: 50
+ 
+ 
 
-
+  
+  
 
  
  
