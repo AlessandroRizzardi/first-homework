@@ -51,6 +51,7 @@ Il meccanismo presenta un solo parametro dato dalla posizione che si vuole dare 
 ## NOTE UTILI
 * I test del secondo device sono stati tolti dal  file CMakeLists poichè alcune alcune limitazioni sono state commentate per ottenere la machine e quindi se si vuole testare vanno commentati o tolti i relativi test. Prima di utilizzare il device si è opportunamente controllato che i test passassero.
 *  Grandezze indicative per ottenere i device sono:
+
 CRANE:
   _base-width_: 200,
   _base-height_: 60,
@@ -66,6 +67,8 @@ CARELLO-GRU:
  _width_platform_: 200,
  _rotation_: tra -80 e 0,
  _sliding_: 50.
+ 
+ * Per far si che i test passino e il proramma carichi e salvi i file nel modi giusto assicurarsi di essere nella cartella giusta, ovvero quella contenente il main e non in altre sottocartelle tipo quella build
  
  
 
