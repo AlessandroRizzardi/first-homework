@@ -48,7 +48,7 @@ Il meccanismo presenta un solo parametro dato dalla posizione che si vuole dare 
 * Il carrello può muoversi lungo il braccio della gru ma non può uscire da questo;
 * Limiti legati alla necessità di rimanere nel disegno.
 
-##NOTE UTILI
+## NOTE UTILI
 * I test del secondo device sono stati tolti dal  file CMakeLists poichè alcune alcune limitazioni sono state commentate per ottenere la machine e quindi se si vuole testare vanno commentati o tolti i relativi test. Prima di utilizzare il device si è opportunamente controllato che i test passassero.
 *  Grandezze indicative per ottenere i device sono:
 CRANE:
